@@ -1,41 +1,84 @@
 ﻿using APP_API.IServices;
+using APP_DATA.Context;
 using APP_DATA.IRepositories;
 using APP_DATA.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace APP_API.Services
 {
-    public class GioHangService : IGioHangService
+    public class GioHangService
     {
-        private readonly IGioHangRepository _gioHangRepository;
+        private MyDbContext _db;
+        private DbSet<GioHang> _dbset;
 
-        public GioHangService(IGioHangRepository gioHangRepository)
+        public GioHangService()
         {
-            _gioHangRepository = gioHangRepository;
+            _db = new MyDbContext();
+            _dbset = _db.Set<GioHang>();
+
+
         }
 
-        public GioHang GetGioHangById(Guid id)
+        public void AddGioHang(GioHang item)
         {
-            return _gioHangRepository.GetGioHangById(id);
+
+            try
+            {
+
+                _dbset.Add(item);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
         public IEnumerable<GioHang> GetAllGioHangs()
+
         {
-            return _gioHangRepository.GetAllGioHangs();
+            return _dbset.ToList();
         }
 
-        public void AddGioHang(GioHang gioHang)
-        {
-            _gioHangRepository.AddGioHang(gioHang);
-        }
 
-        public void UpdateGioHang(GioHang gioHang)
+        public void UpdateGioHang(GioHang item)
         {
-            _gioHangRepository.UpdateGioHang(gioHang);
+            var x = GetAllGioHangs().FirstOrDefault(x => x.Id == item.Id);
+
+            try
+            {
+                x.NgayTao = item.NgayTao;
+                x.KhachHang = item.KhachHang;
+                x.KhachHangID = item.KhachHangID;
+                _dbset.Update(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
 
         public void DeleteGioHang(Guid id)
         {
-            _gioHangRepository.DeleteGioHang(id);
+            var x = GetAllGioHangs().FirstOrDefault(x => x.Id == id);
+            try
+            {
+                _dbset.Remove(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
     }
 }

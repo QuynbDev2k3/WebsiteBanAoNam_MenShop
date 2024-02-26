@@ -1,5 +1,8 @@
 ﻿using APP_API.IServices;
+using APP_API.Services;
+using APP_DATA.IRepositories;
 using APP_DATA.Models;
+using APP_DATA.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APP_API.Controllers
@@ -8,11 +11,10 @@ namespace APP_API.Controllers
     [ApiController]
     public class GioHangController : Controller
     {
-        private readonly IGioHangService _gioHangService;
-
-        public GioHangController(IGioHangService gioHangService)
+        private readonly GioHangService _gioHangService;
+        public GioHangController()
         {
-            _gioHangService = gioHangService;
+            _gioHangService = new GioHangService();
         }
 
         [HttpGet]
@@ -21,11 +23,7 @@ namespace APP_API.Controllers
             return _gioHangService.GetAllGioHangs();
         }
 
-        [HttpGet("{id}")]
-        public GioHang GetGioHangById(Guid id)
-        {
-            return _gioHangService.GetGioHangById(id);
-        }
+        
 
         [HttpPost]
         public IActionResult AddGioHang(GioHang gioHang)

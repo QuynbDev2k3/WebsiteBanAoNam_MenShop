@@ -22,9 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="IServices\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\APP_DATA\APP_DATA.csproj" />
+    <ProjectReference Include="..\APP_VIEW\APP_VIEW.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using APP_DATA.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace APP_DATA.Context
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
+        public DbSet<KichCo> KichCos { get; set; }
+        public DbSet<CTGioHang> CTGioHangs { get; set; }
+        public DbSet<GioHang> GioHangs { get; set; }
+        public DbSet<KhachHang> KhachHangs { get; set; }
+        public DbSet<Role> Roles { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
@@ -26,7 +32,7 @@ namespace APP_DATA.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=WINDOWS10\\SQLEXPRESS;Database=TestNew;Trusted_Connection=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=LAPTOP-B9NKF2E2\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
     }

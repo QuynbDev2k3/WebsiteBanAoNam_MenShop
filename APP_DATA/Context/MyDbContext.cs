@@ -18,6 +18,10 @@ namespace APP_DATA.Context
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
+        public DbSet<Anh> anhs { get; set; }
+        public DbSet<MauSac> mauSacs { get; set; }
+        public DbSet<LichSuMuaHang> lichSuMuaHangs { get; set; }
+        public DbSet<DoiTra> doiTras { get; set; }
         public DbSet<KichCo> KichCos { get; set; }
         public DbSet<CTGioHang> CTGioHangs { get; set; }
         public DbSet<GioHang> GioHangs { get; set; }

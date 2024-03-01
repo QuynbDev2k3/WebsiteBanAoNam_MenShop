@@ -1,41 +1,91 @@
 ﻿using APP_API.IServices;
+using APP_DATA.Context;
 using APP_DATA.IRepositories;
 using APP_DATA.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace APP_API.Services
 {
-    public class KhachHangService : IKhachHangService
+    public class KhachHangService 
     {
-        private readonly IKhachHangRepository _khachHangRepository;
+      
+        private MyDbContext _db;
+        private DbSet<KhachHang> _dbset;
 
-        public KhachHangService(IKhachHangRepository khachHangRepository)
+        public KhachHangService()
         {
-            _khachHangRepository = khachHangRepository;
+          _db = new MyDbContext();
+          _dbset = _db.Set<KhachHang>();
+
+
         }
 
-        public KhachHang GetKhachHangById(Guid id)
+        public void AddKhachHang(KhachHang item)
         {
-            return _khachHangRepository.GetKhachHangById(id);
+
+            try
+            {
+      
+                _dbset.Add(item);
+                _db.SaveChanges();
+                return ;
+            }
+            catch (Exception)
+            {
+
+                
+            }
         }
 
         public IEnumerable<KhachHang> GetAllKhachHangs()
+
         {
-            return _khachHangRepository.GetAllKhachHangs();
+            return _dbset.ToList();
         }
 
-        public void AddKhachHang(KhachHang khachHang)
-        {
-            _khachHangRepository.AddKhachHang(khachHang);
-        }
 
-        public void UpdateKhachHang(KhachHang khachHang)
+        public void UpdateKhachHang(KhachHang item)
         {
-            _khachHangRepository.UpdateKhachHang(khachHang);
+            var x = GetAllKhachHangs().FirstOrDefault(x => x.Id == item.Id);
+
+            try
+            {
+                x.SDT = item.SDT;
+                x.GioiTinh = item.GioiTinh;
+                x.Ten = item.Ten;
+                x.MatKhau = item.MatKhau;
+                x.NgaySinh = item.NgaySinh;
+                x.DiaChi = item.DiaChi;
+                x.Diem=item.Diem;
+                x.Email = item.Email;
+                x.TrangThai = item.TrangThai;
+                _dbset.Update(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
 
         public void DeleteKhachHang(Guid id)
         {
-            _khachHangRepository.DeleteKhachHang(id);
+           var x = GetAllKhachHangs().FirstOrDefault(x => x.Id == id);
+            try
+            {
+                _dbset.Remove(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
     }
 }

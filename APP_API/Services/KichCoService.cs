@@ -1,41 +1,84 @@
 ﻿using APP_API.IServices;
+using APP_DATA.Context;
 using APP_DATA.IRepositories;
 using APP_DATA.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace APP_API.Services
 {
-    public class KichCoService : IKichCoService
+    public class KichCoService 
     {
-        private readonly IKichCoRepository _kichCoRepository;
+        private MyDbContext _db;
+        private DbSet<KichCo> _dbset;
 
-        public KichCoService(IKichCoRepository kichCoRepository)
+        public KichCoService()
         {
-            _kichCoRepository = kichCoRepository;
+            _db = new MyDbContext();
+            _dbset = _db.Set<KichCo>();
+
+
         }
 
-        public KichCo GetKichCoById(Guid id)
+        public void AddKichCo(KichCo item)
         {
-            return _kichCoRepository.GetKichCoById(id);
+
+            try
+            {
+
+                _dbset.Add(item);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
         public IEnumerable<KichCo> GetAllKichCos()
+
         {
-            return _kichCoRepository.GetAllKichCos();
+            return _dbset.ToList();
         }
 
-        public void AddKichCo(KichCo kichCo)
-        {
-            _kichCoRepository.AddKichCo(kichCo);
-        }
 
-        public void UpdateKichCo(KichCo kichCo)
+        public void UpdateKichCo(KichCo item)
         {
-            _kichCoRepository.UpdateKichCo(kichCo);
+            var x = GetAllKichCos().FirstOrDefault(x => x.Id == item.Id);
+
+            try
+            {
+                x.Name = item.Name;
+                x.TrangThai = item.TrangThai;
+                x.Ma = item.Ma;
+                _dbset.Update(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
 
         public void DeleteKichCo(Guid id)
         {
-            _kichCoRepository.DeleteKichCo(id);
+            var x = GetAllKichCos().FirstOrDefault(x => x.Id == id);
+            try
+            {
+                _dbset.Remove(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
     }
 }

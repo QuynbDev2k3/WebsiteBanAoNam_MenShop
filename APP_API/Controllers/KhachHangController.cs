@@ -1,4 +1,5 @@
 ﻿using APP_API.IServices;
+using APP_API.Services;
 using APP_DATA.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,11 +10,12 @@ namespace APP_API.Controllers
     [ApiController]
     public class KhachHangController : Controller
     {
-        private readonly IKhachHangService _khachHangService;
+        private readonly KhachHangService _khachHangService;
 
-        public KhachHangController(IKhachHangService khachHangService)
+
+        public KhachHangController( )
         {
-            _khachHangService = khachHangService;
+            _khachHangService = new KhachHangService();
         }
 
         [HttpGet]
@@ -22,11 +24,11 @@ namespace APP_API.Controllers
             return _khachHangService.GetAllKhachHangs();
         }
 
-        [HttpGet("{id}")]
-        public KhachHang GetKhachHangById(Guid id)
-        {
-            return _khachHangService.GetKhachHangById(id);
-        }
+        //[HttpGet("{id}")]
+        //public KhachHang GetKhachHangById(Guid id)
+        //{
+        //    return _khachHangService.GetKhachHangById(id);
+        //}
 
         [HttpPost]
         public IActionResult AddKhachHang(KhachHang khachHang)
@@ -38,6 +40,7 @@ namespace APP_API.Controllers
         [HttpPut]
         public IActionResult UpdateKhachHang(KhachHang khachHang)
         {
+
             _khachHangService.UpdateKhachHang(khachHang);
             return Ok();
         }

@@ -1,41 +1,90 @@
 ﻿using APP_API.IServices;
+using APP_DATA.Context;
 using APP_DATA.IRepositories;
 using APP_DATA.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace APP_API.Services
 {
-    public class CTGioHangService : ICTGioHangService
+    public class CTGioHangService 
     {
-        private readonly ICTGioHangRepository _ctGioHangRepository;
+        private MyDbContext _db;
+        private DbSet<CTGioHang> _dbset;
 
-        public CTGioHangService(ICTGioHangRepository ctGioHangRepository)
+        public CTGioHangService()
         {
-            _ctGioHangRepository = ctGioHangRepository;
+            _db = new MyDbContext();
+            _dbset = _db.Set<CTGioHang>();
+
+
         }
 
-        public CTGioHang GetCTGioHangById(Guid id)
+        public void AddCTGioHang(CTGioHang item)
         {
-            return _ctGioHangRepository.GetCTGioHangById(id);
+
+            try
+            {
+
+                _dbset.Add(item);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
         public IEnumerable<CTGioHang> GetAllCTGioHangs()
+
         {
-            return _ctGioHangRepository.GetAllCTGioHangs();
+            return _dbset.ToList();
         }
 
-        public void AddCTGioHang(CTGioHang ctGioHang)
-        {
-            _ctGioHangRepository.AddCTGioHang(ctGioHang);
-        }
 
-        public void UpdateCTGioHang(CTGioHang ctGioHang)
+        public void UpdateCTGioHang(CTGioHang item)
         {
-            _ctGioHangRepository.UpdateCTGioHang(ctGioHang);
+            var x = GetAllCTGioHangs().FirstOrDefault(x => x.Id == item.Id);
+
+            try
+            {
+                x.TongTien = item.TongTien;
+                x.KhachHangID = item.KhachHangID;
+                x.SoLuong = item.SoLuong;
+                x.GioHang = item.GioHang;
+                //x.ChiTietSP = item.ChiTietSP;
+                x.KhachHang = item.KhachHang;
+                x.GioHangID = item.GioHangID;
+                //x.ChiTetSP = item.ChiTietSP;
+                
+                _dbset.Update(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
 
         public void DeleteCTGioHang(Guid id)
         {
-            _ctGioHangRepository.DeleteCTGioHang(id);
+            var x = GetAllCTGioHangs().FirstOrDefault(x => x.Id == id);
+            try
+            {
+                _dbset.Remove(x);
+                _db.SaveChanges();
+                return;
+            }
+            catch (Exception)
+            {
+
+
+
+            }
         }
     }
 }

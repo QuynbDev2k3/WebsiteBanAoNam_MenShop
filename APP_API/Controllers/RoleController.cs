@@ -1,4 +1,5 @@
 ﻿using APP_API.IServices;
+using APP_API.Services;
 using APP_DATA.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,11 @@ namespace APP_API.Controllers
     [ApiController]
     public class RoleController : Controller
     {
-        private readonly IRoleService _roleService;
+        private readonly RoleService _roleService;
 
-        public RoleController(IRoleService roleService)
+        public RoleController()
         {
-            _roleService = roleService;
+            _roleService = new RoleService();
         }
 
         [HttpGet]
@@ -21,11 +22,7 @@ namespace APP_API.Controllers
             return _roleService.GetAllRoles();
         }
 
-        [HttpGet("{id}")]
-        public Role GetRoleById(Guid id)
-        {
-            return _roleService.GetRoleById(id);
-        }
+        
 
         [HttpPost]
         public IActionResult AddRole(Role role)

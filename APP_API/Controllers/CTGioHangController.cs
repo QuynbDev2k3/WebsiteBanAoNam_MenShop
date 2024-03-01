@@ -1,4 +1,5 @@
 ﻿using APP_API.IServices;
+using APP_API.Services;
 using APP_DATA.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,11 @@ namespace APP_API.Controllers
     [ApiController]
     public class CTGioHangController : Controller
     {
-        private readonly ICTGioHangService _ctGioHangService;
+        private readonly CTGioHangService _ctGioHangService;
 
-        public CTGioHangController(ICTGioHangService ctGioHangService)
+        public CTGioHangController()
         {
-            _ctGioHangService = ctGioHangService;
+            _ctGioHangService = new CTGioHangService();
         }
 
         [HttpGet]
@@ -21,11 +22,7 @@ namespace APP_API.Controllers
             return _ctGioHangService.GetAllCTGioHangs();
         }
 
-        [HttpGet("{id}")]
-        public CTGioHang GetCTGioHangById(Guid id)
-        {
-            return _ctGioHangService.GetCTGioHangById(id);
-        }
+        
 
         [HttpPost]
         public IActionResult AddCTGioHang(CTGioHang ctGioHang)

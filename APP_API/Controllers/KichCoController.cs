@@ -1,4 +1,5 @@
 ﻿using APP_API.IServices;
+using APP_API.Services;
 using APP_DATA.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,11 @@ namespace APP_API.Controllers
     [ApiController]
     public class KichCoController : Controller
     {
-        private readonly IKichCoService _kichCoService;
+        private readonly KichCoService _kichCoService;
 
-        public KichCoController(IKichCoService kichCoService)
+        public KichCoController()
         {
-            _kichCoService = kichCoService;
+            _kichCoService = new KichCoService();
         }
 
         [HttpGet]
@@ -21,11 +22,11 @@ namespace APP_API.Controllers
             return _kichCoService.GetAllKichCos();
         }
 
-        [HttpGet("{id}")]
-        public KichCo GetKichCoById(Guid id)
-        {
-            return _kichCoService.GetKichCoById(id);
-        }
+        //[HttpGet("{id}")]
+        //public KichCo GetKichCoById(Guid id)
+        //{
+            //return _kichCoService.GetKichCoById(id);
+        //}
 
         [HttpPost]
         public IActionResult AddKichCo(KichCo kichCo)

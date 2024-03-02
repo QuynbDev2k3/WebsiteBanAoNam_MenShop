@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APP_DATA.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240301133925_dan")]
-    partial class dan
+    [Migration("20240302130129_MenShop")]
+    partial class MenShop
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,6 +96,70 @@ namespace APP_DATA.Migrations
                     b.ToTable("CtHoadons");
                 });
 
+            modelBuilder.Entity("APP_DATA.Models.CTSanPham", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<double>("GiaBan")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("IDAnh")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDChatLieu")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDDanhGia")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDGiamGia")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDHang")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDKichCo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDLoaiSanPham")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDMauSac")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDSanPham")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IDVoucher")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ma")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("MoTa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("SoLuong")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("CtSanPhams");
+                });
+
             modelBuilder.Entity("APP_DATA.Models.ChatLieu", b =>
                 {
                     b.Property<Guid>("Id")
@@ -112,6 +176,48 @@ namespace APP_DATA.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("chatlieus");
+                });
+
+            modelBuilder.Entity("APP_DATA.Models.DanhGia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BinhLuan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayDanhGia")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Sao")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("TrangThai")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DanhGias");
+                });
+
+            modelBuilder.Entity("APP_DATA.Models.DanhMucSanPham", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TrangThai")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DanhMucSanPhams");
                 });
 
             modelBuilder.Entity("APP_DATA.Models.DoiTra", b =>
@@ -138,6 +244,30 @@ namespace APP_DATA.Migrations
                     b.ToTable("doiTras");
                 });
 
+            modelBuilder.Entity("APP_DATA.Models.GiamGia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BinhLuan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayDanhGia")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Sao")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("trangThai")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GiamGias");
+                });
+
             modelBuilder.Entity("APP_DATA.Models.GioHang", b =>
                 {
                     b.Property<Guid>("Id")
@@ -155,6 +285,24 @@ namespace APP_DATA.Migrations
                     b.HasIndex("KhachHangID");
 
                     b.ToTable("GioHangs");
+                });
+
+            modelBuilder.Entity("APP_DATA.Models.Hang", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Hangs");
                 });
 
             modelBuilder.Entity("APP_DATA.Models.HoaDon", b =>
@@ -303,6 +451,29 @@ namespace APP_DATA.Migrations
                     b.ToTable("lichSuMuaHangs");
                 });
 
+            modelBuilder.Entity("APP_DATA.Models.LichSuTichDiem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdHoaDon")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdNguoiDung")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdQuyDoiDiem")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("TrangThai")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LichSuTichDiems");
+                });
+
             modelBuilder.Entity("APP_DATA.Models.MauSac", b =>
                 {
                     b.Property<Guid>("Id")
@@ -325,6 +496,67 @@ namespace APP_DATA.Migrations
                     b.ToTable("mauSacs");
                 });
 
+            modelBuilder.Entity("APP_DATA.Models.NhanVien", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DiaChi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<Guid>("IDRole")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ma")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("MatKhau")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("SDT")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("NhanViens");
+                });
+
+            modelBuilder.Entity("APP_DATA.Models.QuyDoiDiem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("TiLeTichDiem")
+                        .HasColumnType("real");
+
+                    b.Property<float>("TiLeTieuDiem")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("TrangThai")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("QuyDoiDiems");
+                });
+
             modelBuilder.Entity("APP_DATA.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -342,6 +574,34 @@ namespace APP_DATA.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("APP_DATA.Models.SanPham", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Gia")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("IDDanhMucSanPham")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ma")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SanPhams");
                 });
 
             modelBuilder.Entity("APP_DATA.Models.Voucher", b =>

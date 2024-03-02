@@ -27,12 +27,10 @@ namespace APP_DATA.Context
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<KhachHang> KhachHangs { get; set; }
         public DbSet<Role> Roles { get; set; }
-<<<<<<< HEAD
         public DbSet<ChatLieu> chatlieus { get; set; }
         public DbSet<Voucher> vouchers { get; set; }
         public DbSet<CTHoaDon> CtHoadons { get; set; }
         public DbSet<HoaDon> hoadons { get; set; }
-=======
         public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<CTSanPham> CtSanPhams { get; set; }
         public DbSet<NhanVien> NhanViens { get; set; }
@@ -42,7 +40,6 @@ namespace APP_DATA.Context
         public DbSet<DanhGia> DanhGias { get; set; }
         public DbSet<LichSuTichDiem> LichSuTichDiems { get; set; }
         public DbSet<QuyDoiDiem> QuyDoiDiems { get; set; }
->>>>>>> ff3b4691c3ea30f76b3817ca47c2fde5dceb8968
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
@@ -52,11 +49,8 @@ namespace APP_DATA.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-<<<<<<< HEAD
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
-=======
-              //  optionsBuilder.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
->>>>>>> ff3b4691c3ea30f76b3817ca47c2fde5dceb8968
+                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
+                // optionsBuilder.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
     }

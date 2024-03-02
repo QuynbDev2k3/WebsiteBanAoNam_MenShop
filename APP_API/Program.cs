@@ -9,6 +9,7 @@ using APP_DATA.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using APP_API.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +19,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-<<<<<<< HEAD
+
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
     options.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS; Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
 });
-=======
+
 // Thêm dịch vụ DbContext đã đăng ký từ bên ngoài
 // builder.Services.AddDbContext<MyDbContext>(options =>
 // {
@@ -39,7 +40,7 @@ builder.Services.AddScoped<ICTSanPhamService, CTSanPhamService>();
 // {
 //     options.UseSqlServer("Server=LAPTOP-B9NKF2E2\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
 // });
->>>>>>> ff3b4691c3ea30f76b3817ca47c2fde5dceb8968
+
 //builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
 //builder.Services.AddScoped<IGioHangService, GioHangService>();
 

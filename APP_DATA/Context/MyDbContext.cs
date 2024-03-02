@@ -31,6 +31,11 @@ namespace APP_DATA.Context
         public DbSet<CTSanPham> CtSanPhams { get; set; }
         public DbSet<NhanVien> NhanViens { get; set; }
         public DbSet<Hang> Hangs { get; set; }
+        public DbSet<GiamGia> GiamGias { get; set; }
+        public DbSet<DanhMucSanPham> DanhMucSanPhams { get; set; }
+        public DbSet<DanhGia> DanhGias { get; set; }
+        public DbSet<LichSuTichDiem> LichSuTichDiems { get; set; }
+        public DbSet<QuyDoiDiem> QuyDoiDiems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
@@ -40,7 +45,7 @@ namespace APP_DATA.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
+              //  optionsBuilder.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
     }

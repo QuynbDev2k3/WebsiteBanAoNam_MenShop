@@ -1,4 +1,4 @@
-using APP_API.IServices;
+//using APP_API.IServices;
 using APP_API.Services;
 using APP_DATA.Context;
 using APP_DATA.IRepositories;
@@ -17,7 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
-    options.UseSqlServer("Server=LAPTOP-B9NKF2E2\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
+    options.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS; Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
 });
 //builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
 //builder.Services.AddScoped<IGioHangService, GioHangService>();

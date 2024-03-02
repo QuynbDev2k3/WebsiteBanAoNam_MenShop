@@ -15,7 +15,7 @@ namespace APP_DATA.Configurations
         {
             builder.HasKey(g => g.Id);
             builder.Property(g => g.NgayTao);
-            builder.HasOne(g => g.KhachHang).WithMany().HasForeignKey(g => g.KhachHangID);
+            //builder.HasOne(g => g.KhachHang).WithMany().HasForeignKey(g => g.KhachHangID);
         }
     }
 }

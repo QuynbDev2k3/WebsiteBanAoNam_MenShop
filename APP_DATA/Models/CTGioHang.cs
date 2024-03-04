@@ -8,7 +8,7 @@ namespace APP_DATA.Models
 {
     public class CTGioHang
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }   
         public Guid? KhachHangID { get; set; }
         public int TongTien { get; set; }
         public int SoLuong { get; set; }

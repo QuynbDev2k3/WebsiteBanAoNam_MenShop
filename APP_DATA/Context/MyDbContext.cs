@@ -27,6 +27,19 @@ namespace APP_DATA.Context
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<KhachHang> KhachHangs { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<ChatLieu> chatlieus { get; set; }
+        public DbSet<Voucher> vouchers { get; set; }
+        public DbSet<CTHoaDon> CtHoadons { get; set; }
+        public DbSet<HoaDon> hoadons { get; set; }
+        public DbSet<SanPham> SanPhams { get; set; }
+        public DbSet<CTSanPham> CtSanPhams { get; set; }
+        public DbSet<NhanVien> NhanViens { get; set; }
+        public DbSet<Hang> Hangs { get; set; }
+        public DbSet<GiamGia> GiamGias { get; set; }
+        public DbSet<DanhMucSanPham> DanhMucSanPhams { get; set; }
+        public DbSet<DanhGia> DanhGias { get; set; }
+        public DbSet<LichSuTichDiem> LichSuTichDiems { get; set; }
+        public DbSet<QuyDoiDiem> QuyDoiDiems { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<CTSanPham> CtSanPhams { get; set; }
         public DbSet<NhanVien> NhanViens { get; set; }
@@ -40,7 +53,8 @@ namespace APP_DATA.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=LAPTOP-B9NKF2E2\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
+                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
+                // optionsBuilder.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
     }

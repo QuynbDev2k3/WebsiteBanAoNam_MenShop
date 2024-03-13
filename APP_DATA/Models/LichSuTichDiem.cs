@@ -15,5 +15,6 @@ namespace APP_DATA.Models
         public Guid IdQuyDoiDiem { get; set; }
         public Guid IdHoaDon {  get; set; }
         public bool TrangThai {  get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }

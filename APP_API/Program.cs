@@ -20,10 +20,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MyDbContext>(options =>
-{
-    options.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS; Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
-});
+//builder.Services.AddDbContext<MyDbContext>(options =>
+//{
+//    options.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS; Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
+//});
 
 // Thêm dịch vụ DbContext đã đăng ký từ bên ngoài
 // builder.Services.AddDbContext<MyDbContext>(options =>

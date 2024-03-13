@@ -33,7 +33,7 @@ namespace APP_API.Controllers
             {
                 Id = Guid.NewGuid(),
                 TenMauSac = name,
-                status = 1,
+                TrangThai = true,
                 Ma = ma,
             };
             if (_mausacsv.GetAll().Any(c => c.TenMauSac == name))

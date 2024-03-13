@@ -17,8 +17,7 @@ namespace APP_DATA.Configurations
             builder.Property(r => r.dongia).IsRequired();
             builder.Property(r => r.soluong).IsRequired();
             builder.Property(r => r.trangthai).IsRequired();
-            
-
+            builder.HasOne(c => c.HoaDon).WithMany(c => c.CTHoaDons).HasForeignKey(c => c.IdHoaDon);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace APP_API.Services
             try
             {
                 p.Name = item.Name;
-                p.trangthai = item.trangthai;
+                p.TrangThai = item.TrangThai;
               
 
                 _dbset.Update(p);

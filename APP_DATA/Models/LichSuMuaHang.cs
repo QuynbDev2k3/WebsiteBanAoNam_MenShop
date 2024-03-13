@@ -9,6 +9,7 @@ namespace APP_DATA.Models
     public class LichSuMuaHang
     {
         public Guid Id { get; set; }
-        public int status {  get; set; }
+        public bool TrsngThai {  get; set; }
+        public virtual KhachHang? KhachHang { get; set;}
     }
 }

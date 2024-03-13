@@ -32,7 +32,7 @@ namespace APP_API.Controllers
             {
                 Id = Guid.NewGuid(),
                 LinkAnh = name,
-                status = 1,
+                TrangThai = true,
             };
             return _anhsv.Add(anh);
         }

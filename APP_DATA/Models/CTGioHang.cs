@@ -13,9 +13,9 @@ namespace APP_DATA.Models
         public int TongTien { get; set; }
         public int SoLuong { get; set; }
         public GioHang? GioHang { get; set; }
-        //public ChiTietSP? ChiTietSP { get; set; }
-        public KhachHang? KhachHang { get; set; }
+        public CTSanPham? CTSanPhams { get; set; }
         public Guid? GioHangID { get; set; }
-        //public Guid? ChiTietSP { get; set; }
+        public Guid? IdCTSanPham { get; set; }
+        
     }
 }

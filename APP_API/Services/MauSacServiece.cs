@@ -27,7 +27,7 @@ namespace Bill.Serviece.Implements
                 {
                     Id = Guid.NewGuid(),
                     TenMauSac = p.TenMauSac,
-                    status = 1,
+                    TrangThai = true,
                     Ma = p.Ma,
                 };
                 _context.Add(mauSac);
@@ -46,7 +46,7 @@ namespace Bill.Serviece.Implements
                 MauSac mauSac = _context.mauSacs.FirstOrDefault(c => c.Id == id);
                 if (mauSac != null) 
                 {
-                    mauSac.status = 0;
+                    mauSac.TrangThai = true;
                 };
                 _context.mauSacs.Update(mauSac);
                 _context.SaveChanges();
@@ -66,7 +66,7 @@ namespace Bill.Serviece.Implements
                 if (mauSac != null)
                 {
                     mauSac.TenMauSac = p.TenMauSac;
-                    mauSac.status = p.status;
+                    mauSac.TrangThai = p.TrangThai;
                     mauSac.Ma = p.Ma;
                 };
                 _context.mauSacs.Update(mauSac);

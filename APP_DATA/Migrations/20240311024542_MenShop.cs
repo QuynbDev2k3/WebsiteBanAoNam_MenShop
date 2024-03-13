@@ -336,6 +336,30 @@ namespace APP_DATA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CTSanPhamHang",
+                columns: table => new
+                {
+                    ctsanphamsID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    hangID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CTSanPhamHang", x => new { x.ctsanphamsID, x.hangID });
+                    table.ForeignKey(
+                        name: "FK_CTSanPhamHang_CtSanPhams_ctsanphamsID",
+                        column: x => x.ctsanphamsID,
+                        principalTable: "CtSanPhams",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CTSanPhamHang_Hangs_hangID",
+                        column: x => x.hangID,
+                        principalTable: "Hangs",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GioHangs",
                 columns: table => new
                 {
@@ -354,6 +378,30 @@ namespace APP_DATA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CTSanPhamSanPham",
+                columns: table => new
+                {
+                    ctsanphamID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    sanphamID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CTSanPhamSanPham", x => new { x.ctsanphamID, x.sanphamID });
+                    table.ForeignKey(
+                        name: "FK_CTSanPhamSanPham_CtSanPhams_ctsanphamID",
+                        column: x => x.ctsanphamID,
+                        principalTable: "CtSanPhams",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CTSanPhamSanPham_SanPhams_sanphamID",
+                        column: x => x.sanphamID,
+                        principalTable: "SanPhams",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CTGioHangs",
                 columns: table => new
                 {
@@ -361,11 +409,18 @@ namespace APP_DATA.Migrations
                     KhachHangID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TongTien = table.Column<int>(type: "int", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
-                    GioHangID = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    CTSanPhamsID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    GioHangID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CTSanPham = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CTGioHangs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CTGioHangs_CtSanPhams_CTSanPhamsID",
+                        column: x => x.CTSanPhamsID,
+                        principalTable: "CtSanPhams",
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_CTGioHangs_GioHangs_GioHangID",
                         column: x => x.GioHangID,
@@ -379,6 +434,11 @@ namespace APP_DATA.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_CTGioHangs_CTSanPhamsID",
+                table: "CTGioHangs",
+                column: "CTSanPhamsID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CTGioHangs_GioHangID",
                 table: "CTGioHangs",
                 column: "GioHangID");
@@ -387,6 +447,16 @@ namespace APP_DATA.Migrations
                 name: "IX_CTGioHangs_KhachHangID",
                 table: "CTGioHangs",
                 column: "KhachHangID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CTSanPhamHang_hangID",
+                table: "CTSanPhamHang",
+                column: "hangID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CTSanPhamSanPham_sanphamID",
+                table: "CTSanPhamSanPham",
+                column: "sanphamID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GioHangs_KhachHangID",
@@ -410,7 +480,10 @@ namespace APP_DATA.Migrations
                 name: "CtHoadons");
 
             migrationBuilder.DropTable(
-                name: "CtSanPhams");
+                name: "CTSanPhamHang");
+
+            migrationBuilder.DropTable(
+                name: "CTSanPhamSanPham");
 
             migrationBuilder.DropTable(
                 name: "DanhGias");
@@ -423,9 +496,6 @@ namespace APP_DATA.Migrations
 
             migrationBuilder.DropTable(
                 name: "GiamGias");
-
-            migrationBuilder.DropTable(
-                name: "Hangs");
 
             migrationBuilder.DropTable(
                 name: "hoadons");
@@ -452,13 +522,19 @@ namespace APP_DATA.Migrations
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "SanPhams");
-
-            migrationBuilder.DropTable(
                 name: "vouchers");
 
             migrationBuilder.DropTable(
                 name: "GioHangs");
+
+            migrationBuilder.DropTable(
+                name: "Hangs");
+
+            migrationBuilder.DropTable(
+                name: "CtSanPhams");
+
+            migrationBuilder.DropTable(
+                name: "SanPhams");
 
             migrationBuilder.DropTable(
                 name: "KhachHangs");

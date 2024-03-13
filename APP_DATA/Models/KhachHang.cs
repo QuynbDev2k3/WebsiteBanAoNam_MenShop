@@ -16,8 +16,11 @@ namespace APP_DATA.Models
         public string MatKhau { get; set; }
         public string Email { get; set; }
         public int Diem { get; set; }
-        public string TrangThai { get; set; }
+        public bool TrangThai { get; set; }
         public string DiaChi { get; set; }
-
+        public ICollection<LichSuMuaHang>? lichSuMuaHangs { get; set; }
+        public virtual GioHang? GioHang { get; set; }
+        public ICollection<HoaDon>? hoaDons { get; set; }
+        public ICollection<LichSuTichDiem>? lichSuTichDiems { get; set; }
     }
 }

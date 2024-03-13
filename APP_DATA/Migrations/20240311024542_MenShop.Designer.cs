@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APP_DATA.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240302130129_MenShop")]
+    [Migration("20240311024542_MenShop")]
     partial class MenShop
     {
         /// <inheritdoc />
@@ -49,6 +49,12 @@ namespace APP_DATA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("CTSanPham")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CTSanPhamsID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("GioHangID")
                         .HasColumnType("uniqueidentifier");
 
@@ -62,6 +68,8 @@ namespace APP_DATA.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CTSanPhamsID");
 
                     b.HasIndex("GioHangID");
 
@@ -643,8 +651,42 @@ namespace APP_DATA.Migrations
                     b.ToTable("vouchers");
                 });
 
+            modelBuilder.Entity("CTSanPhamHang", b =>
+                {
+                    b.Property<Guid>("ctsanphamsID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("hangID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ctsanphamsID", "hangID");
+
+                    b.HasIndex("hangID");
+
+                    b.ToTable("CTSanPhamHang");
+                });
+
+            modelBuilder.Entity("CTSanPhamSanPham", b =>
+                {
+                    b.Property<Guid>("ctsanphamID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("sanphamID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ctsanphamID", "sanphamID");
+
+                    b.HasIndex("sanphamID");
+
+                    b.ToTable("CTSanPhamSanPham");
+                });
+
             modelBuilder.Entity("APP_DATA.Models.CTGioHang", b =>
                 {
+                    b.HasOne("APP_DATA.Models.CTSanPham", "CTSanPhams")
+                        .WithMany()
+                        .HasForeignKey("CTSanPhamsID");
+
                     b.HasOne("APP_DATA.Models.GioHang", "GioHang")
                         .WithMany()
                         .HasForeignKey("GioHangID");
@@ -652,6 +694,8 @@ namespace APP_DATA.Migrations
                     b.HasOne("APP_DATA.Models.KhachHang", "KhachHang")
                         .WithMany()
                         .HasForeignKey("KhachHangID");
+
+                    b.Navigation("CTSanPhams");
 
                     b.Navigation("GioHang");
 
@@ -665,6 +709,36 @@ namespace APP_DATA.Migrations
                         .HasForeignKey("KhachHangID");
 
                     b.Navigation("KhachHang");
+                });
+
+            modelBuilder.Entity("CTSanPhamHang", b =>
+                {
+                    b.HasOne("APP_DATA.Models.CTSanPham", null)
+                        .WithMany()
+                        .HasForeignKey("ctsanphamsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("APP_DATA.Models.Hang", null)
+                        .WithMany()
+                        .HasForeignKey("hangID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CTSanPhamSanPham", b =>
+                {
+                    b.HasOne("APP_DATA.Models.CTSanPham", null)
+                        .WithMany()
+                        .HasForeignKey("ctsanphamID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("APP_DATA.Models.SanPham", null)
+                        .WithMany()
+                        .HasForeignKey("sanphamID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

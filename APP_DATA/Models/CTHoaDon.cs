@@ -14,6 +14,8 @@ namespace APP_DATA.Models
         public Guid IdCTSP { get; set; }
         public int dongia { get; set; }  
         public int soluong { get; set; }
-        public int trangthai { get; set; }
+        public bool trangthai { get; set; }
+        public virtual HoaDon? HoaDon { get; set; }
+
     }
 }

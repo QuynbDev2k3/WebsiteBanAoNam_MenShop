@@ -40,10 +40,6 @@ namespace APP_DATA.Context
         public DbSet<DanhGia> DanhGias { get; set; }
         public DbSet<LichSuTichDiem> LichSuTichDiems { get; set; }
         public DbSet<QuyDoiDiem> QuyDoiDiems { get; set; }
-        public DbSet<SanPham> SanPhams { get; set; }
-        public DbSet<CTSanPham> CtSanPhams { get; set; }
-        public DbSet<NhanVien> NhanViens { get; set; }
-        public DbSet<Hang> Hangs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
@@ -54,7 +50,7 @@ namespace APP_DATA.Context
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
-                // optionsBuilder.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
+                //optionsBuilder.UseSqlServer(@"Server=LAPTOP-B9NKF2E2\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
     }

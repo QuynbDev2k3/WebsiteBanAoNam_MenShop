@@ -10,7 +10,7 @@ namespace APP_DATA.Models
     {
         public Guid Id { get; set; }
         public string LinkAnh { get; set; }
-        public int status { get; set; }
-
+        public bool TrangThai { get; set; }
+        public virtual CTSanPham? CTSanPhams { get; set; }
     }
 }

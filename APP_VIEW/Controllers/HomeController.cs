@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using APP_DATA.Context;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace APP_VIEW.Controllers;
-
-public class HomeController : Controller
+namespace APP_VIEW.Controllers
 {
-    public IActionResult Index()
+    public class HomeController : Controller
     {
-        throw new NotImplementedException();
-    }
+        private MyDbContext _context;
 
-    public IActionResult Privacy()
-    {
-        throw new NotImplementedException();
+        public HomeController(MyDbContext context) {
+            _context = context;
+        }
+        
+        
     }
 }

@@ -14,8 +14,9 @@ namespace APP_DATA.Configurations
         public void Configure(EntityTypeBuilder<GioHang> builder)
         {
             builder.HasKey(g => g.Id);
+            builder.Property(g => g.IdGioHang).IsRequired();
             builder.Property(g => g.NgayTao);
-            //builder.HasOne(g => g.KhachHang).WithMany().HasForeignKey(g => g.KhachHangID);
+            builder.HasOne(g => g.KhachHang).WithOne(g => g.GioHang).HasForeignKey<KhachHang>(p => p.Id);
         }
     }
 }

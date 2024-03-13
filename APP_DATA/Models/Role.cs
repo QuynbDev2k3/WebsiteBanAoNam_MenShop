@@ -10,7 +10,7 @@ namespace APP_DATA.Models
     {
         public Guid Id { get; set; }
         public string Ten { get; set; }
-        public string TrangThai { get; set; }
-        
+        public bool TrangThai { get; set; }
+        public virtual ICollection<NhanVien>? NhanViens { get; set; }
     }
 }

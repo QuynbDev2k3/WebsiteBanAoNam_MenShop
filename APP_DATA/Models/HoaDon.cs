@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace APP_DATA.Models
 {
@@ -17,6 +18,7 @@ namespace APP_DATA.Models
         public Guid IdCTHoaDon { get; set; }
         public Guid IdVoucher { get; set; }   
         public Guid IdNhanVien { get; set; }
+        public Guid IdKhachHang { get; set; }
         public int MaHD { get; set; }
         public int TienShip { get; set; }
         public DateTime NgayTao { get; set; }
@@ -29,9 +31,11 @@ namespace APP_DATA.Models
         public string GhiChu { get; set; }
         public DateTime NgayNhanHang { get; set; }
         public DateTime NgayThanhToan { get; set; }
-        public int TrangThai { get; set; }
-        //public virtual CTHoaDon CTHoaDon { get; set; }
-
-
+        public bool TrangThai { get; set; }
+        public virtual ICollection<CTHoaDon>? CTHoaDons { get; set; }
+        public virtual ICollection<Voucher>? Vouchers { get; set; }
+        public virtual NhanVien? NhanVien { get; set; }
+        public virtual DoiTra? DoiTra { get; set; }
+        public virtual KhachHang? KhachHang { get; set; }
     }
 }

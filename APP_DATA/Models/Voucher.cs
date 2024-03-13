@@ -16,8 +16,10 @@ namespace APP_DATA.Models
         public DateTime NgayHetHan {  get; set; }
         public int SoLuong {  get; set; }
         public string MoTa {  get; set; }
-        public int trangthai {  get; set; }   
-        //public virtual List<CTSanPham> CTSanPhams { get; set; }
+        public bool trangthai {  get; set; }
+        public virtual ICollection<CTSanPham>? CTSanPhams { get; set; }
+        public virtual ICollection<CTHoaDon>? CTHoaDons { get; set; }
+
 
     }
 }

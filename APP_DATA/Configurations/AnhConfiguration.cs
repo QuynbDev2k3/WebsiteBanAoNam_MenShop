@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 
 namespace APP_DATA.Configurations
 {
-    public class ChatLieuConfiguration : IEntityTypeConfiguration<ChatLieu>
+    public class AnhConfiguration : IEntityTypeConfiguration<Anh>
     {
-        public void Configure(EntityTypeBuilder<ChatLieu> builder)
+        public void Configure(EntityTypeBuilder<Anh> builder)
         {
             builder.HasKey(r => r.Id);
-            builder.Property(r => r.Name).IsRequired();       
+            builder.Property(r => r.LinkAnh).IsRequired();
             builder.Property(r => r.TrangThai).IsRequired();
+            builder.HasOne(r => r.CTSanPhams).WithMany(r => r.Anhs).HasForeignKey(r => r.Id);
         }
     }
 }

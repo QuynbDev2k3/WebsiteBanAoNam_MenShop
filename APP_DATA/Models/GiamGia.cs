@@ -13,5 +13,6 @@ namespace APP_DATA.Models
         public int Sao {  get; set; }
         public DateTime NgayDanhGia { get; set; }
         public bool trangThai { get; set; }
+        public virtual ICollection<CTSanPham>? CTSanPhams { get; set; }
     }
 }

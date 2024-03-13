@@ -11,5 +11,6 @@ namespace APP_DATA.Models
         public Guid Id { get; set; }
         public string Ten {  get; set; }
         public bool TrangThai { get; set; }
+        public virtual ICollection<SanPham>? SanPhams { get; set;}
     }
 }

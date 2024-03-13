@@ -32,7 +32,6 @@ namespace APP_API.Services
             {
                 var gg = myDbContext.QuyDoiDiems.FirstOrDefault(c => c.Id == item.Id);
                gg.TiLeTichDiem=item.TiLeTichDiem;
-                gg.TiLeTieuDiem=item.TiLeTieuDiem;
                 gg.TrangThai=item.TrangThai;
                 myDbContext.Update(gg);
                 myDbContext.SaveChanges();

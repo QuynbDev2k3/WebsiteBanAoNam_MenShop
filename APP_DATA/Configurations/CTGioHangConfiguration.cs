@@ -18,8 +18,6 @@ namespace APP_DATA.Configurations
             builder.Property(c => c.SoLuong);
             builder.HasOne(c => c.GioHang).WithMany(c => c.cTGioHangs).HasForeignKey(c => c.GioHangID);
             builder.HasOne(c => c.CTSanPhams).WithMany(c => c.CTGioHang).HasForeignKey(c => c.IdCTSanPham);
-            //builder.HasOne(c => c.ChiTietSP).WithMany().HasForeignKey(c => c.ChiTietSPID);
-            //builder.HasOne(c => c.KhachHang).WithMany().HasForeignKey(c => c.KhachHangID);
         }
     }
 }

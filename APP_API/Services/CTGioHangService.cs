@@ -50,11 +50,9 @@ namespace APP_API.Services
             try
             {
                 x.TongTien = item.TongTien;
-                x.KhachHangID = item.KhachHangID;
                 x.SoLuong = item.SoLuong;
                 x.GioHang = item.GioHang;
                 //x.ChiTietSP = item.ChiTietSP;
-                x.KhachHang = item.KhachHang;
                 x.GioHangID = item.GioHangID;
                 //x.ChiTetSP = item.ChiTietSP;
                 

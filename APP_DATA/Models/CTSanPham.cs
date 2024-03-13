@@ -8,7 +8,6 @@ public class CTSanPham
     public Guid IDMauSac { get; set; }
     public Guid IDKichCo { get; set; }
     public Guid IDChatLieu { get; set; }
-    //public Guid IDLoaiSanPham { get; set; }
     public Guid IDAnh { get; set; }
     public Guid IDGiamGia { get; set; }
     public Guid IDHang { get; set; }

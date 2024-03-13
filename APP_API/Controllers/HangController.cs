@@ -33,18 +33,18 @@ public class HangController : ControllerBase
 
     [Route("add")]
     [HttpPost]
-    public async Task<IActionResult> AddHang(Hang hang)
+    public async Task<IActionResult> AddHang(string ten, bool trangthai)
     {
-        await this.hangService.Create(hang);
-        return Created("", hang);
+        await this.hangService.Create(ten, trangthai);
+        return Created("", new { Ten = ten, TrangThai = trangthai });
     }
 
-    [Route("update")]
+    [Route("update/{id}")]
     [HttpPut]
-    public async Task<IActionResult> UpdateHang(Hang hang)
+    public async Task<IActionResult> UpdateHang(Guid id, string ten, bool trangthai)
     {
-        await this.hangService.Update(hang);
-        return Ok(hang);
+        await this.hangService.Update(id, ten, trangthai);
+        return Created("", new {Id = id, Ten = ten, TrangThai = trangthai });
     }
 
     [Route("delete/{id}")]

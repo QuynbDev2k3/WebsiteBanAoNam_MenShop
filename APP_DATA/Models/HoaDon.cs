@@ -37,5 +37,7 @@ namespace APP_DATA.Models
         public virtual NhanVien? NhanVien { get; set; }
         public virtual DoiTra? DoiTra { get; set; }
         public virtual KhachHang? KhachHang { get; set; }
+        public virtual LichSuMuaHang? LichSuMuaHang { get; set; }
+        public virtual LichSuTichDiem? LichSuTichDiem { get; set; }
     }
 }

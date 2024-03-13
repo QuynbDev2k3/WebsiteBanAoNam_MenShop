@@ -18,8 +18,11 @@ public class CTSanPhamConfiguration : IEntityTypeConfiguration<CTSanPham>
         builder.Property(p => p.TrangThai).HasColumnType("int").IsRequired();
         builder.HasOne(p => p.ChatLieu).WithMany(p => p.CTSanPhams).HasForeignKey(p => p.IDChatLieu);
         builder.HasOne(p => p.hang).WithMany(p => p.ctsanphams).HasForeignKey(p => p.IDHang);
+        builder.HasMany(p => p.vouchers).WithMany(p => p.CTSanPhams);
+        builder.HasMany(p => p.MauSacs).WithMany(p => p.cTSanPhams);
+        builder.HasMany(p => p.kichCos).WithMany(p => p.cTSanPhams);
+        builder.HasOne(p => p.ChatLieu).WithMany(p => p.CTSanPhams).HasForeignKey(p => p.IDChatLieu);
+        builder.HasOne(p => p.GiamGia).WithMany(p => p.CTSanPhams).HasForeignKey(p => p.IDGiamGia);
         builder.HasOne(p => p.sanpham).WithOne(p => p.ctsanpham).HasForeignKey<CTSanPham>(p => p.IDSanPham);
-        // builder.HasOne(p => p.hang).WithMany(p => p.ctsanphams).HasForeignKey(p => p.IDHang);
-        // builder.HasOne(p => p.sanpham).WithOne(p => p.ctsanpham).HasForeignKey<CTSanPham>(p => p.IDSanPham);
     }
 }

@@ -18,7 +18,7 @@ namespace APP_DATA.Models
         public string MoTa {  get; set; }
         public bool trangthai {  get; set; }
         public virtual ICollection<CTSanPham>? CTSanPhams { get; set; }
-        public virtual ICollection<CTHoaDon>? CTHoaDons { get; set; }
+        public virtual ICollection<HoaDon>? HoaDons { get; set; }
 
 
     }

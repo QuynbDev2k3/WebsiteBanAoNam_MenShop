@@ -6,7 +6,7 @@ public interface ICTSanPhamService
 {
     Task<IEnumerable<CTSanPham>> GetAll();
     Task<CTSanPham> GetById(Guid id);
-    Task Create(CTSanPham ctSanPham);
-    Task Update(CTSanPham ctSanPham);
+    Task Create(Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idanh, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai);
+    Task Update(Guid id, Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idanh, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai);
     Task Delete(Guid id);
 }

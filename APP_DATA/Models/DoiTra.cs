@@ -16,7 +16,7 @@ namespace APP_DATA.Models
         public Guid IdHoaDon { get; set; }
         public Guid IdSanPham { get; set; }
         public virtual SanPham? SanPham { get; set; }
-        public virtual HoaDon HoaDon { get; set; }
+        public virtual HoaDon? HoaDon { get; set; }
 
     }
 }

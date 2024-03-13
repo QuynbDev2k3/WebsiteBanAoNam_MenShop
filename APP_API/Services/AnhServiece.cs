@@ -26,7 +26,7 @@ namespace Bill.Serviece.Implements
                 {
                     Id = Guid.NewGuid(),
                     LinkAnh = p.LinkAnh,
-                    status = p.status
+                    TrangThai = p.TrangThai
                 };
                 _context.anhs.Add(anh);
                 _context.SaveChanges(); 
@@ -45,7 +45,7 @@ namespace Bill.Serviece.Implements
                 Anh anh = _context.anhs.FirstOrDefault(c => c.Id == id);
                 if (anh != null)
                 {
-                    anh.status = 0;
+                    anh.TrangThai = true;
                 }
                 _context.anhs.Update(anh);
                 _context.SaveChanges();
@@ -65,7 +65,7 @@ namespace Bill.Serviece.Implements
                 Anh anh = _context.anhs.FirstOrDefault(c => c.Id == id);
                 if (anh != null)
                 {
-                    anh.status = p.status;
+                    anh.TrangThai = p.TrangThai;
                     anh.LinkAnh = p.LinkAnh;
                 }
                 _context.anhs.Update(anh);

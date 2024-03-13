@@ -16,5 +16,6 @@ public class NhanVienConfiguration : IEntityTypeConfiguration<NhanVien>
         builder.Property(p => p.DiaChi).HasColumnType("nvarchar(100)").IsRequired();
         builder.Property(p => p.MatKhau).HasColumnType("varchar(50)").IsRequired();
         builder.Property(p => p.TrangThai).HasColumnType("int").IsRequired();
+        builder.HasOne(p => p.Role).WithMany(p => p.NhanViens).HasForeignKey(p => p.IDRole);
     }
 }

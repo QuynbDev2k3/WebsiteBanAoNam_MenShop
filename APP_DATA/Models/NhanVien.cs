@@ -11,6 +11,6 @@ public class NhanVien
     public string DiaChi { get; set; }
     public string MatKhau { get; set; }
     public bool TrangThai { get; set; }
-    public virtual ICollection<CTHoaDon>? CTHoaDons { get; set; }
+    public virtual ICollection<HoaDon>? HoaDons { get; set; }
     public virtual Role? Role { get; set; }
 }

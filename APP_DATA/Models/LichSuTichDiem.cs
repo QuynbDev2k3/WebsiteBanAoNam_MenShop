@@ -11,10 +11,13 @@ namespace APP_DATA.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public Guid IdNguoiDung { get; set; }
+        public Guid IdKhachHang { get; set; }
         public Guid IdQuyDoiDiem { get; set; }
-        public Guid IdHoaDon {  get; set; }
+        public Guid? IdHoaDon {  get; set; }
+        public float Diem {  get; set; }
         public bool TrangThai {  get; set; }
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual KhachHang? KhachHang { get; set; }
+        public virtual QuyDoiDiem? QuyDoiDiem { get; set; }
+        public virtual HoaDon? HoaDon { get; set; }
     }
 }

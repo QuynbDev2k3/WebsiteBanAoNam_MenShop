@@ -27,7 +27,11 @@ namespace APP_DATA.Configurations
             builder.Property(r => r.NgayNhanHang).IsRequired();
             builder.Property(r => r.NgayThanhToan).IsRequired();
             builder.Property(r => r.TrangThai).IsRequired();
-
+            builder.HasMany(p => p.Vouchers).WithMany(p => p.HoaDons);
+            builder.HasOne(p => p.DoiTra).WithOne(p => p.HoaDon).HasForeignKey<DoiTra>(p => p.IdHoaDon);
+            // builder.HasOne(p => p.LichSuMuaHang).WithOne(p => p.HoaDon).HasForeignKey<LichSuMuaHang>(p => p.IdHoaDon);
+            builder.HasOne(p => p.NhanVien).WithMany(p => p.HoaDons).HasForeignKey(p => p.IdNhanVien);
+            builder.HasOne(p => p.KhachHang).WithMany(p => p.hoaDons).HasForeignKey(p => p.IdKhachHang);
         }
     }
 }

@@ -33,18 +33,18 @@ public class SanPhamController : ControllerBase
 
     [Route("add")]
     [HttpPost]
-    public async Task<IActionResult> AddSanPham(SanPham sanPham)
+    public async Task<IActionResult> AddSanPham(Guid iddanhmucsanpham, string ma, string ten, float gia, bool trangthai)
     {
-        await this.sanPhamService.Create(sanPham);
-        return Created("", sanPham);
+        await this.sanPhamService.Create(iddanhmucsanpham, ma, ten, gia, trangthai);
+        return Created("", new { IDDanhMucSanPham = iddanhmucsanpham, Ma = ma, Ten = ten, Gia = gia, TrangThai = trangthai });
     }
 
-    [Route("update")]
+    [Route("update/{id}")]
     [HttpPut]
-    public async Task<IActionResult> UpdateSanPham(SanPham sanPham)
+    public async Task<IActionResult> UpdateSanPham(Guid id, Guid iddanhmucsanpham, string ma, string ten, float gia, bool trangthai)
     {
-        await this.sanPhamService.Update(sanPham);
-        return Ok(sanPham);
+        await this.sanPhamService.Update(id, iddanhmucsanpham, ma, ten, gia, trangthai);
+        return Created("", new {Id = id, IDDanhMucSanPham = iddanhmucsanpham, Ma = ma, Ten = ten, Gia = gia, TrangThai = trangthai });
     }
 
     [Route("delete/{id}")]

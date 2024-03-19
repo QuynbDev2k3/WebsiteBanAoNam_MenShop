@@ -3,12 +3,6 @@
     ViewData["Title"] = "TaiQuay";
 }
 
-@* @model TModel *@
-@* *@
-@* @{ *@
-@*     Layout = null; *@
-@* } *@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,19 +43,19 @@
         }
 
         .customer-info {
-            margin-bottom: 5px;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 10px;
+            margin-bottom:5px;
         }
 
-            .customer-info input {
-                width: calc(50% - 10px); /* Đặt chiều rộng của input là 50% với khoảng cách 10px giữa chúng */
-                padding: 8px;
-                margin-bottom: 10px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-            }
+        .customer-info input {
+            width: calc(50% - 10px); /* Đặt chiều rộng của input là 50% với khoảng cách 10px giữa chúng */
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
 
         .product-list {
             display: flex;
@@ -71,7 +65,7 @@
             border-radius: 8px;
             padding: 10px;
             max-height: 300px; /* Đặt chiều cao tối đa */
-            overflow-y: auto; /* Tạo thanh cuộn dọc khi nội dung vượt quá chiều cao tối đa */
+    		overflow-y: auto; /* Tạo thanh cuộn dọc */
         }
 
         .product-item {
@@ -80,7 +74,6 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            margin-left: 5px;
         }
 
         .product-image {
@@ -112,6 +105,7 @@
 
         .cart-item {
             margin-bottom: 10px;
+            margin-left: 5px;
         }
 
         .cart-item-name {
@@ -138,16 +132,16 @@
             cursor: pointer;
         }
 
-            .right button:hover {
-                background-color: #0056b3;
-            }
-
-        .invoice-info {
-            height: 500px;
-            margin-bottom: 5px;
-            border: 1px solid #ddd;
+        .right button:hover {
+            background-color: #0056b3;
+        }
+        
+        .invoice-info{
+        	height: 500px;
+        	border: 1px solid #ddd;
             border-radius: 8px;
             padding: 10px;
+            margin-bottom: 5px;
         }
     </style>
 </head>

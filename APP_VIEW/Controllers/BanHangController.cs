@@ -1,18 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace APP_VIEW.Controllers;
-
-public class BanHangController : Controller
+namespace APP_VIEW.Controllers
 {
-    private readonly ILogger<BanHangController> _logger;
-
-    public BanHangController(ILogger<BanHangController> logger)
+    public class BanHangController : Controller
     {
-        _logger = logger;
-    }
-    // GET
-    public IActionResult TaiQuay()
-    {
-        return View();
+        public IActionResult TaiQuay()
+        {
+            return View();
+        }
     }
 }

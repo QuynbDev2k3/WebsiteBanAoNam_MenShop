@@ -36,10 +36,10 @@ builder.Services.AddScoped<INhanVienService, NhanVienService>();
 builder.Services.AddScoped<IHangService, HangService>();
 builder.Services.AddScoped<ISanPhamService, SanPhamService>();
 builder.Services.AddScoped<ICTSanPhamService, CTSanPhamService>();
-// builder.Services.AddDbContext<MyDbContext>(options =>
-// {
-//     options.UseSqlServer("Server=LAPTOP-B9NKF2E2\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
-// });
+builder.Services.AddDbContext<MyDbContext>(options =>
+{
+    options.UseSqlServer("Data Source=DESKTOP-L9J8TJS\\SQLEXPRESS;Initial Catalog=MenShop;Integrated Security=True;Encrypt=False");
+});
 
 //builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
 //builder.Services.AddScoped<IGioHangService, GioHangService>();

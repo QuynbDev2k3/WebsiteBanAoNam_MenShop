@@ -51,7 +51,7 @@ namespace APP_DATA.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-L9J8TJS\\SQLEXPRESS;Initial Catalog=MenShop;Integrated Security=True;Encrypt=False");
+                 //optionsBuilder.UseSqlServer("Data Source=DESKTOP-L9J8TJS\\SQLEXPRESS;Initial Catalog=MenShop;Integrated Security=True;Encrypt=False");
                 //optionsBuilder.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
                 //optionsBuilder.UseSqlServer(@"Server=LAPTOP-B9NKF2E2\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }

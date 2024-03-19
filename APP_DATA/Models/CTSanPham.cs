@@ -27,7 +27,6 @@ public class CTSanPham
     public virtual ChatLieu? ChatLieu { get; set; }
     public virtual ICollection<Anh>? Anhs { get; set; }
     public virtual GiamGia? GiamGia { get; set; }
-    public virtual Hang? Hang { get; set; }
     public virtual ICollection<CTGioHang>? CTGioHang { get; set; }
     public virtual ICollection<DanhGia>? DanhGias { get; set; }
 }

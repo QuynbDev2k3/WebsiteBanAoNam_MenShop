@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewData["Title"] = "TaiQuay";
+}
+
+@* @model TModel *@
+@* *@
+@* @{ *@
+@*     Layout = null; *@
+@* } *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bán hàng</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left {
+            flex: 8;
+            margin-right: 20px;
+        }
+
+        .right {
+            flex: 2;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .customer-info {
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+            .customer-info input {
+                width: calc(50% - 10px); /* Đặt chiều rộng của input là 50% với khoảng cách 10px giữa chúng */
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            max-height: 300px; /* Đặt chiều cao tối đa */
+            overflow-y: auto; /* Tạo thanh cuộn dọc khi nội dung vượt quá chiều cao tối đa */
+        }
+
+        .product-item {
+            width: calc(33.33% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-left: 5px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+        }
+
+        .product-details {
+            padding: 10px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            color: #007bff;
+        }
+
+        .cart {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item {
+            margin-bottom: 10px;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            color: #007bff;
+        }
+
+        .total-price {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .right button {
+            width: 48.5%;
+            padding: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .right button:hover {
+                background-color: #0056b3;
+            }
+
+        .invoice-info {
+            height: 500px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="customer-info">
+                <h2>Thông tin khách hàng</h2>
+                <input type="text" placeholder="Họ và tên">
+                <input type="text" placeholder="Địa chỉ">
+                <input type="text" placeholder="Số điện thoại">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="cart">
+                <h2>Giỏ hàng</h2>
+                <div class="cart-item">
+                    <div class="cart-item-name">Sản phẩm 1</div>
+                    <div class="cart-item-price">$10</div>
+                </div>
+                <!-- Thêm sản phẩm đã thêm vào giỏ hàng -->
+                <div class="total-price">Tổng cộng: $10</div>
+            </div>
+            <div class="product-list">
+                <div class="product-item">
+                    <div class="product-image" style="background-image: url('https://www.pexels.com/photo/wonderful-pink-clouds-in-sky-at-sunset-5677459/');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Sản phẩm 1</div>
+                        <div class="product-price">$10</div>
+                        <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-image" style="background-image: url('https://www.pexels.com/photo/wonderful-pink-clouds-in-sky-at-sunset-5677459/');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Sản phẩm 2</div>
+                        <div class="product-price">$20</div>
+                        <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-image" style="background-image: url('https://www.pexels.com/photo/wonderful-pink-clouds-in-sky-at-sunset-5677459/');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Sản phẩm 2</div>
+                        <div class="product-price">$20</div>
+                        <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-image" style="background-image: url('https://www.pexels.com/photo/wonderful-pink-clouds-in-sky-at-sunset-5677459/');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Sản phẩm 2</div>
+                        <div class="product-price">$20</div>
+                        <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-image" style="background-image: url('https://www.pexels.com/photo/wonderful-pink-clouds-in-sky-at-sunset-5677459/');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Sản phẩm 2</div>
+                        <div class="product-price">$20</div>
+                        <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-image" style="background-image: url('https://www.pexels.com/photo/wonderful-pink-clouds-in-sky-at-sunset-5677459/');"></div>
+                    <div class="product-details">
+                        <div class="product-name">Sản phẩm 2</div>
+                        <div class="product-price">$20</div>
+                        <button class="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <!-- Thêm sản phẩm khác -->
+            </div>
+        </div>
+        <div class="right">
+            <div class="invoice-info">
+                <h2>Hóa đơn</h2>
+                <!-- Thêm thông tin hóa đơn ở đây -->
+            </div>
+            <button class="btn-pay">Thanh toán</button>
+            <button class="btn-print">In hóa đơn</button>
+        </div>
+    </div>
+</body>
+</html>
+
+

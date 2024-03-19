@@ -26,10 +26,10 @@ builder.Services.AddSwaggerGen();
 //});
 
 // Thêm dịch vụ DbContext đã đăng ký từ bên ngoài
-// builder.Services.AddDbContext<MyDbContext>(options =>
-// {
-//     options.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
-// });
+//builder.Services.AddDbContext<MyDbContext>(options =>
+//{
+//    options.UseSqlServer("Server=QUY\\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
+//});
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<INhanVienService, NhanVienService>();

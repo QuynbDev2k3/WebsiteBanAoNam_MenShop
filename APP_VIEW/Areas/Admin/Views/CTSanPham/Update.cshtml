@@ -1,0 +1,106 @@
+﻿@model APP_DATA.Models.CTSanPham
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>CTSanPham</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="IDSanPham" class="control-label"></label>
+                <select asp-for="IDSanPham" class="form-control" asp-items="ViewBag.IDSanPham"></select>
+                <span asp-validation-for="IDSanPham" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDVoucher" class="control-label"></label>
+                <input asp-for="IDVoucher" class="form-control" />
+                <span asp-validation-for="IDVoucher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDMauSac" class="control-label"></label>
+                <input asp-for="IDMauSac" class="form-control" />
+                <span asp-validation-for="IDMauSac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDKichCo" class="control-label"></label>
+                <input asp-for="IDKichCo" class="form-control" />
+                <span asp-validation-for="IDKichCo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDChatLieu" class="control-label"></label>
+                <select asp-for="IDChatLieu" class="form-control" asp-items="ViewBag.IDChatLieu"></select>
+                <span asp-validation-for="IDChatLieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDAnh" class="control-label"></label>
+                <input asp-for="IDAnh" class="form-control" />
+                <span asp-validation-for="IDAnh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDGiamGia" class="control-label"></label>
+                <select asp-for="IDGiamGia" class="form-control" asp-items="ViewBag.IDGiamGia"></select>
+                <span asp-validation-for="IDGiamGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDHang" class="control-label"></label>
+                <select asp-for="IDHang" class="form-control" asp-items="ViewBag.IDHang"></select>
+                <span asp-validation-for="IDHang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDDanhGia" class="control-label"></label>
+                <input asp-for="IDDanhGia" class="form-control" />
+                <span asp-validation-for="IDDanhGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GiaBan" class="control-label"></label>
+                <input asp-for="GiaBan" class="form-control" />
+                <span asp-validation-for="GiaBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoLuong" class="control-label"></label>
+                <input asp-for="SoLuong" class="form-control" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayTao" class="control-label"></label>
+                <input asp-for="NgayTao" class="form-control" />
+                <span asp-validation-for="NgayTao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"></label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ma" class="control-label"></label>
+                <input asp-for="Ma" class="form-control" />
+                <span asp-validation-for="Ma" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TrangThai" /> @Html.DisplayNameFor(model => model.TrangThai)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

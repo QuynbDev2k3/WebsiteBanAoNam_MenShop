@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
-    options.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS; Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
+    options.UseSqlServer("Data Source=LAPTOP-LK8MUMJ8\\SQLEXPRESS;Initial Catalog=MenShop;User ID=duhvph21775;Password=123456;Encrypt=False");
 });
 
 // Thêm dịch vụ DbContext đã đăng ký từ bên ngoài

@@ -25,7 +25,7 @@ public class NhanVienController : ControllerBase
 
     [Route("getbyid/{id}")]
     [HttpGet]
-    public async Task<IActionResult> GetNhanVienById(Guid id)
+    public async Task<IActionResult> GetNhanVienById( Guid id)
     {
         var result = await this.nhanVienService.GetById(id);
         return Ok(result);
@@ -33,7 +33,7 @@ public class NhanVienController : ControllerBase
     
     [Route("add")]
     [HttpPost]
-    public async Task<IActionResult> AddNhanVien(Guid idrole, string ma, string ten, string sdt, string email, string diachi, string matkhau, bool trangthai)
+    public async Task<IActionResult> AddNhanVien([FromQuery] Guid idrole, string ma, string ten, string sdt, string email, string diachi, string matkhau, bool trangthai)
     {
         await this.nhanVienService.Create(idrole, ma, ten, sdt, email, diachi, matkhau, trangthai);
         return Created("", new { IDRole = idrole, Ma = ma, Ten = ten, SDT = sdt, Email = email, DiaChi = diachi, MatKhau = matkhau, TrangThai = trangthai });
@@ -41,7 +41,7 @@ public class NhanVienController : ControllerBase
     
     [Route("update/{id}")]
     [HttpPut]
-    public async Task<IActionResult> UpdateNhanVien(Guid id, Guid idrole, string ma, string ten, string sdt, string email, string diachi, string matkhau, bool trangthai)
+    public async Task<IActionResult> UpdateNhanVien( Guid id, Guid idrole, string ma, string ten, string sdt, string email, string diachi, string matkhau, bool trangthai)
     {
         await this.nhanVienService.Update(id, idrole, ma, ten, sdt, email, diachi, matkhau, trangthai);
         return Created("", new {Id = id, IDRole = idrole, Ma = ma, Ten = ten, SDT = sdt, Email = email, DiaChi = diachi, MatKhau = matkhau, TrangThai = trangthai });

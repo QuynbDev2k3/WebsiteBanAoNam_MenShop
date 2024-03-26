@@ -50,7 +50,7 @@ namespace APP_VIEW.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(Guid id)
         {
-            string apiUrl = $"";
+            string apiUrl = $"https://localhost:7164/api/ctsanpham/getbyid/{id}";
             var response = await _httpClient.GetAsync(apiUrl);
             string apiData = await response.Content.ReadAsStringAsync();
             var CTSanPham = JsonConvert.DeserializeObject<CTSanPham>(apiData);
@@ -59,7 +59,7 @@ namespace APP_VIEW.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Guid id, CTSanPham ctSP)
         {
-            string apiUrl = $"";
+            string apiUrl = $"https://localhost:7164/api/ctsanpham/update/{id}";
             var content = new StringContent(JsonConvert.SerializeObject(ctSP),Encoding.UTF8,"application/json");
             var response = await _httpClient.PutAsync(apiUrl, content);
             if (response.IsSuccessStatusCode)
@@ -71,7 +71,7 @@ namespace APP_VIEW.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {
-            string apiUrl = $"";
+            string apiUrl = $"https://localhost:7164/api/ctsanpham/getbyid/{id}";
             var response = await _httpClient.GetAsync(apiUrl) ;
             string apiData = await response.Content.ReadAsStringAsync() ;
             var CTSP = JsonConvert.DeserializeObject<CTSanPham> (apiData);

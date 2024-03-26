@@ -1,96 +1,57 @@
-﻿using APP_API.Services;
+﻿using APP_API.IServices;
 using APP_DATA.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace APP_API.Controllers
+namespace APP_API.Controllers;
+
+[Route("api/nhanvien")]
+[ApiController]
+public class AnhController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AnhController : ControllerBase
+    private readonly IAnhServiece anh;
+
+    public AnhController(IAnhServiece anhser)
     {
-        private readonly AnhServiece _AnhServices;
+        this.anh = anhser;
+    }
 
-        public AnhController()
-        {
-            _AnhServices = new AnhServiece();
-        }
+    [Route("getall")]
+    [HttpGet]
+    public async Task<IActionResult> GetAllAnh()
+    {
+        var result = await this.anh.GetAll();
+        return Ok(result);
+    }
 
-        [HttpGet("Get")]
-        public IEnumerable<Anh> GetAll()
-        {
-            return _AnhServices.GetAll();
-        }
+    [Route("getbyid/{id}")]
+    [HttpGet]
+    public async Task<IActionResult> GetAnhById(Guid id)
+    {
+        var result = await this.anh.GetById(id);
+        return Ok(result);
+    }
 
+    [Route("add")]
+    [HttpPost]
+    public async Task<IActionResult> AddAnh([FromQuery] string linkanh, bool trangthai)
+    {
+        await this.anh.Add(linkanh, trangthai);
+        return Created("", new { LinkAnh = linkanh, TrangThai = trangthai });
+    }
 
+    [Route("update/{id}")]
+    [HttpPut]
+    public async Task<IActionResult> UpdateAnh(Guid id, string linkanh, bool trangthai)
+    {
+        await this.anh.Edit(id, linkanh, trangthai);
+        return Created("", new { Id = id, LinkAnh = linkanh, TrangThai = trangthai });
+    }
 
-        [HttpPost("Add")]
-        public IActionResult Add([FromQuery] Anh anh)
-        {
-            _AnhServices.Add(anh);
-            return Ok();
-        }
-
-        [HttpPut("Update")]
-        public IActionResult Update([FromQuery] Anh anh)
-        {
-            _AnhServices.Update(anh);
-            return Ok();
-        }
-
-        [HttpDelete("Delete{id}")]
-        public IActionResult Delete([FromQuery] Guid id)
-        {
-            _AnhServices.Delete(id);
-            return Ok();
-        }
+    [Route("delete/{id}")]
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAnh(Guid id)
+    {
+        await this.anh.Delete(id);
+        return Ok();
     }
 }
-
-//using APP_DATA.Models;
-//using Bill.Serviece.Implements;
-//using Bill.Serviece.Interfaces;
-//using Microsoft.AspNetCore.Mvc;
-
-//// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-//namespace APP_API.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class AnhController : ControllerBase
-//    {
-//        private readonly IAnhServiece _anhsv;
-
-//        public AnhController()
-//        {
-//            _anhsv = new AnhServiece();
-//        }
-//        // GET: api/<AnhController>
-//        [HttpGet("GetAll")]
-//        public IEnumerable<Anh> Get()
-//        {
-//            return _anhsv.GetAll();
-//        }
-
-//        // POST api/<AnhController>
-//        [HttpPost("Create")]
-//        public bool CreateAnh( string name)
-//        {
-//            Anh anh = new Anh()
-//            {
-//                Id = Guid.NewGuid(),
-//                LinkAnh = name,
-//                TrangThai = true,
-//            };
-//            return _anhsv.Add(anh);
-//        }
-
-//        // DELETE api/<MauSacController>/5
-//        [HttpDelete("{Deleteid}")]
-//        public bool DeleteAnh(Guid id)
-//        {
-//            return _anhsv.Del(id);
-//        }
-//    }
-//}

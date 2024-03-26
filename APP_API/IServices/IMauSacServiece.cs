@@ -6,7 +6,7 @@ namespace APP_API.IServices
     {
         public List<MauSac> GetAll();
         public bool Add(MauSac p);
-        public bool Edit(Guid id, Anh p);
+        public bool Edit(Guid id, MauSac p);
         public bool Delete(Guid id);
     }
 }

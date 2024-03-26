@@ -4,10 +4,13 @@ namespace APP_API.IServices
 {
     public interface IAnhServiece
     {
-        public List<Anh> GetAll();
-        public bool Add(Anh p);
-        public bool Edit(Guid id, Anh p);
-        public bool Delete(Guid id);
+        Task<IEnumerable<Anh>> GetAll();
+        Task<Anh> GetById(Guid id);
+        
+        
+        Task Add(string linkanh, bool trangthai);
+        Task Edit(Guid id, string linkanh, bool trangthai);
+        Task Delete(Guid id);
     }
 }
 

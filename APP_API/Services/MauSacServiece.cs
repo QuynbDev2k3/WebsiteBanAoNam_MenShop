@@ -1,7 +1,8 @@
 ﻿
+using APP_API.IServices;
 using APP_DATA.Context;
 using APP_DATA.Models;
-using Bill.Serviece.Interfaces;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bill.Serviece.Implements
+namespace APP_API.Services
 {
     public class MauSacServiece : IMauSacServiece
     {
@@ -58,6 +59,11 @@ namespace Bill.Serviece.Implements
             }
         }
 
+        public bool Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Edit(Guid id, MauSac p)
         {
             try
@@ -77,6 +83,11 @@ namespace Bill.Serviece.Implements
             {
                 return false;
             }
+        }
+
+        public bool Edit(Guid id, Anh p)
+        {
+            throw new NotImplementedException();
         }
 
         public List<MauSac> GetAll()

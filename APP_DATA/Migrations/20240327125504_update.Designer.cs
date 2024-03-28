@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APP_DATA.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240319163253_Update_CTSanPham")]
-    partial class Update_CTSanPham
+    [Migration("20240327125504_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,10 @@ namespace APP_DATA.Migrations
             modelBuilder.Entity("APP_DATA.Models.Anh", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdCtSanPham")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LinkAnh")
@@ -38,6 +42,8 @@ namespace APP_DATA.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdCtSanPham");
 
                     b.ToTable("anhs");
                 });
@@ -109,13 +115,10 @@ namespace APP_DATA.Migrations
                     b.Property<double>("GiaBan")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("IDAnh")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("IDChatLieu")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IDDanhGia")
+                    b.Property<Guid?>("IDDanhGia")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IDGiamGia")
@@ -758,7 +761,7 @@ namespace APP_DATA.Migrations
                 {
                     b.HasOne("APP_DATA.Models.CTSanPham", "CTSanPhams")
                         .WithMany("Anhs")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("IdCtSanPham")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

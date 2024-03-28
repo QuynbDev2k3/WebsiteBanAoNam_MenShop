@@ -29,7 +29,7 @@ namespace APP_API.Controllers
         //}
 
         [HttpPost]
-        public IActionResult AddKichCo(KichCo kichCo)
+        public IActionResult AddKichCo([FromQuery] KichCo kichCo)
         {
             _kichCoService.AddKichCo(kichCo);
             return Ok();

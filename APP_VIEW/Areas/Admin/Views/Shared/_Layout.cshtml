@@ -32,7 +32,7 @@
             <div class="admin-menu">
                 <div class="logo sherah-sidebar-padding">
                     <a href="../Areas/Admin/Views/Product/Index.cshtml">
-                        <img class="sherah-logo__main" src="/layoutAdmin/img/logo_main.jpg" alt="#">
+                        <img class="sherah-logo__main" src="/layoutAdmin/img/logo.jpg" alt="#">
                     </a>
                     <div class="sherah__sicon close-icon d-xl-none">
                         <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,6 +105,13 @@
                                                     <span class="menu-bar__name">Nhân viên</span>
                                                 </span>
                                             </a>
+                                        <li>
+                                            <a href="/Show_chuc_vu">
+                                                <span class="menu-bar__text">
+                                                    <span class="menu-bar__name">Chức vụ</span>
+                                                </span>
+                                            </a>
+                                        </li>
                                         </li>
                                     </ul>
                                 </div>
@@ -129,19 +136,13 @@
                                      data-bs-parent="#sherahMenu">
                                     <ul class="menu-bar__one-dropdown">
                                         <li>
-                                            <a href="/product_list">
+                                            <a href="/Listsanpham">
                                                 <span class="menu-bar__text">
-                                                    <span class="menu-bar__name">Danh sách sản phẩm</span>
+                                                    <span class="menu-bar__name">Sản phẩm</span>
                                                 </span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/productvariant_list">
-                                                <span class="menu-bar__text">
-                                                    <span class="menu-bar__name">Đăng sản phẩm</span>
-                                                </span>
-                                            </a>
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </li>
@@ -498,7 +499,7 @@
                 </div>
             </div>
         </header>
-        <div>
+    <div style="width: 80%; margin-left: 19%;">
             @RenderBody()
         </div>
         @RenderSection("Scripts", required: false)

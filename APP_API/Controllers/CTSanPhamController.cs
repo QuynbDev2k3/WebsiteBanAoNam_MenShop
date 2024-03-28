@@ -33,18 +33,18 @@ public class CTSanPhamController : ControllerBase
 
     [Route("add")]
     [HttpPost]
-    public async Task<IActionResult> AddCTSanPham(Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idanh, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
+    public async Task<IActionResult> AddCTSanPham(Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idgiamgia, Guid idhang, Guid? iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
     {
-        await this.ctSanPhamService.Create(idsanpham, idvoucher, idmausac, idkichco, idchatlieu, idanh, idgiamgia, idhang, iddanhgia, ma, giaban, soluong, age, ngaytao, mota, trangthai);
-        return Created("", new {IDSanPham = idsanpham, IdVouCher = idvoucher, IDMauSac = idmausac, IDKichCo = idkichco, IDChatLieu = idchatlieu, IDAnh = idanh, IDGiamGia = idgiamgia, IDHang = idhang, IDDanhGia = iddanhgia, Ma = ma, GiaBan = giaban, SoLuong = soluong, Age = age, NgayTao = ngaytao, MoTa = mota, TrangThai = trangthai });
+        await this.ctSanPhamService.Create(idsanpham, idvoucher, idmausac, idkichco, idchatlieu, idgiamgia, idhang, iddanhgia, ma, giaban, soluong, age, ngaytao, mota, trangthai);
+        return Created("", new {IDSanPham = idsanpham, IdVouCher = idvoucher, IDMauSac = idmausac, IDKichCo = idkichco, IDChatLieu = idchatlieu, IDGiamGia = idgiamgia, IDHang = idhang, IDDanhGia = iddanhgia, Ma = ma, GiaBan = giaban, SoLuong = soluong, Age = age, NgayTao = ngaytao, MoTa = mota, TrangThai = trangthai });
     }
 
     [Route("update/{id}")]
     [HttpPut]
-    public async Task<IActionResult> UpdateCTSanPham(Guid id, Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idanh, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
+    public async Task<IActionResult> UpdateCTSanPham(Guid id, Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu,  Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
     {
-        await this.ctSanPhamService.Update(id, idsanpham, idvoucher, idmausac, idkichco, idchatlieu, idanh, idgiamgia, idhang, iddanhgia, ma, giaban, soluong, age, ngaytao, mota, trangthai);
-        return Created("", new {IDSanPham = idsanpham, IdVouCher = idvoucher, IDMauSac = idmausac, IDKichCo = idkichco, IDChatLieu = idchatlieu, IDAnh = idanh, IDGiamGia = idgiamgia, IDHang = idhang, IDDanhGia = iddanhgia, Ma = ma, GiaBan = giaban, SoLuong = soluong, Age = age, NgayTao = ngaytao, MoTa = mota, TrangThai = trangthai });
+        await this.ctSanPhamService.Update(id, idsanpham, idvoucher, idmausac, idkichco, idchatlieu, idgiamgia, idhang, iddanhgia, ma, giaban, soluong, age, ngaytao, mota, trangthai);
+        return Created("", new {IDSanPham = idsanpham, IdVouCher = idvoucher, IDMauSac = idmausac, IDKichCo = idkichco, IDChatLieu = idchatlieu, IDGiamGia = idgiamgia, IDHang = idhang, IDDanhGia = iddanhgia, Ma = ma, GiaBan = giaban, SoLuong = soluong, Age = age, NgayTao = ngaytao, MoTa = mota, TrangThai = trangthai });
     }
 
     [Route("delete/{id}")]

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+﻿using APP_API.IServices;
+=======
 ﻿
+using APP_API.IServices;
+>>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
 using APP_DATA.Context;
 using APP_DATA.Models;
-using Bill.Serviece.Interfaces;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bill.Serviece.Implements
+namespace APP_API.Services
 {
     public class MauSacServiece : IMauSacServiece
     {
@@ -33,7 +38,8 @@ namespace Bill.Serviece.Implements
                 _context.Add(mauSac);
                 _context.SaveChanges();
                 return true;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -44,7 +50,7 @@ namespace Bill.Serviece.Implements
             try
             {
                 MauSac mauSac = _context.mauSacs.FirstOrDefault(c => c.Id == id);
-                if (mauSac != null) 
+                if (mauSac != null)
                 {
                     mauSac.TrangThai = true;
                 };
@@ -56,6 +62,11 @@ namespace Bill.Serviece.Implements
             {
                 return false;
             }
+        }
+
+        public bool Delete(Guid id)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Edit(Guid id, MauSac p)
@@ -79,10 +90,18 @@ namespace Bill.Serviece.Implements
             }
         }
 
+<<<<<<< HEAD
+       
+=======
+        public bool Edit(Guid id, Anh p)
+        {
+            throw new NotImplementedException();
+        }
+
+>>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
         public List<MauSac> GetAll()
         {
             return _context.mauSacs.ToList();
         }
     }
 }
-

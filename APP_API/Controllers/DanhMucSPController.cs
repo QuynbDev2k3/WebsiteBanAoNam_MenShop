@@ -28,7 +28,7 @@ namespace APP_API.Controllers
 
         // POST api/<DanhMucSPController>
         [HttpPost]
-        public IActionResult AddDanhMucSP(DanhMucSanPham Danhmuc)
+        public IActionResult AddDanhMucSP([FromQuery] DanhMucSanPham Danhmuc)
         {
             _danhmucSPSevices.AddItem(Danhmuc);
             return Ok();

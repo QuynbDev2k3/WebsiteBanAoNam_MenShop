@@ -1,15 +1,21 @@
 ﻿//using APP_API.IServices;
+using APP_API.IServices;
 using APP_DATA.Context;
 using APP_DATA.IRepositories;
 using APP_DATA.Models;
+using APP_DATA.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace APP_API.Services
 {
-    public class RoleService 
+    public class RoleService
     {
         private MyDbContext _db;
         private DbSet<Role> _dbset;
+
 
         public RoleService()
         {
@@ -18,6 +24,7 @@ namespace APP_API.Services
 
 
         }
+
 
         public void AddRole(Role item)
         {
@@ -41,7 +48,7 @@ namespace APP_API.Services
         {
             return _dbset.ToList();
         }
-
+      
 
         public void UpdateRole(Role item)
         {
@@ -64,6 +71,7 @@ namespace APP_API.Services
             }
         }
 
+        
         public void DeleteRole(Guid id)
         {
             var x = GetAllRoles().FirstOrDefault(x => x.Id == id);
@@ -80,5 +88,22 @@ namespace APP_API.Services
 
             }
         }
+        public Role GetById(Guid id)
+        {
+            try
+            {
+                var role = _dbset.FirstOrDefault(x => x.Id == id);
+                return role;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu cần
+                Console.WriteLine($"Lỗi khi lấy đối tượng theo ID: {ex.Message}");
+                return null;
+            }
+        }
+
+
+
     }
 }

@@ -27,7 +27,7 @@ public class CTSanPhamService : ICTSanPhamService
         return await repository.GetById(id);
     }
 
-    public async Task Create(Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idanh, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
+    public async Task Create(Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idgiamgia, Guid idhang, Guid? iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
     {
         ngaytao = DateTime.Now;
         CTSanPham ctSanPham = new CTSanPham()
@@ -38,7 +38,6 @@ public class CTSanPhamService : ICTSanPhamService
             IDMauSac = idmausac,
             IDKichCo = idkichco,
             IDChatLieu = idchatlieu,
-            IDAnh = idanh,
             IDGiamGia = idgiamgia,
             IDHang = idhang,
             IDDanhGia = iddanhgia,
@@ -53,7 +52,7 @@ public class CTSanPhamService : ICTSanPhamService
         await repository.Create(ctSanPham);
     }
 
-    public async Task Update(Guid id,Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idanh, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
+    public async Task Update(Guid id,Guid idsanpham, Guid idvoucher, Guid idmausac, Guid idkichco, Guid idchatlieu, Guid idgiamgia, Guid idhang, Guid iddanhgia, string ma, float giaban, int soluong, int age, DateTime ngaytao, string mota, bool trangthai)
     {
         var ctSanPham = await _context.CtSanPhams.SingleOrDefaultAsync(p => p.ID == id);
         if (ctSanPham != null)
@@ -63,7 +62,6 @@ public class CTSanPhamService : ICTSanPhamService
             ctSanPham.IDMauSac = idmausac;
             ctSanPham.IDKichCo = idkichco;
             ctSanPham.IDChatLieu = idchatlieu;
-            ctSanPham.IDAnh = idanh;
             ctSanPham.IDGiamGia = idgiamgia;
             ctSanPham.IDHang = idhang;
             ctSanPham.IDDanhGia = iddanhgia;

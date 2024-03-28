@@ -27,7 +27,7 @@ namespace APP_API.Controllers
 
         // POST api/<DanhGiaController>
         [HttpPost]
-        public IActionResult AddDanhGia(DanhGia dg)
+        public IActionResult AddDanhGia([FromQuery] DanhGia dg)
         {
             _danhGiasevices.AddItem(dg);
             return Ok();

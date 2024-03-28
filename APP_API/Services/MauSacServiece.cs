@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 ﻿using APP_API.IServices;
+=======
+﻿
+using APP_API.IServices;
+>>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
 using APP_DATA.Context;
 using APP_DATA.Models;
-using Bill.Serviece.Interfaces;
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -85,7 +90,15 @@ namespace APP_API.Services
             }
         }
 
+<<<<<<< HEAD
        
+=======
+        public bool Edit(Guid id, Anh p)
+        {
+            throw new NotImplementedException();
+        }
+
+>>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
         public List<MauSac> GetAll()
         {
             return _context.mauSacs.ToList();

@@ -25,7 +25,7 @@ public class NhanVienController : ControllerBase
 
     [Route("getbyid/{id}")]
     [HttpGet]
-    public async Task<IActionResult> GetNhanVienById( Guid id)
+    public async Task<IActionResult> GetAnhById( Guid id)
     {
         var result = await this.nhanVienService.GetById(id);
         return Ok(result);

@@ -68,4 +68,10 @@ public class NhanVienService : INhanVienService
     {
         await repository.Delete(id);
     }
+
+    
+
+    
+
+   
 }

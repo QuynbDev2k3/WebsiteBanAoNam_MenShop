@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace APP_DATA.Migrations
 {
     /// <inheritdoc />
-    public partial class _14726032024 : Migration
+    public partial class MenShop : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -42,10 +42,13 @@ namespace APP_DATA.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BinhLuan = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sao = table.Column<int>(type: "int", nullable: false),
-                    NgayDanhGia = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    trangThai = table.Column<bool>(type: "bit", nullable: false)
+                    Ten = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    GiaTri = table.Column<double>(type: "float", nullable: false),
+                    NgayApDung = table.Column<DateTime>(type: "datetime", nullable: false),
+                    NgayHetHan = table.Column<DateTime>(type: "datetime", nullable: false),
+                    SoLuong = table.Column<int>(type: "int", nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(500)", nullable: false),
+                    trangThai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -236,10 +239,10 @@ namespace APP_DATA.Migrations
                     IDMauSac = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDKichCo = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDChatLieu = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IDAnh = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IDAnh = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IDGiamGia = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDHang = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IDDanhGia = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IDDanhGia = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     GiaBan = table.Column<double>(type: "float", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),

@@ -16,7 +16,6 @@ namespace APP_DATA.Configurations
             builder.HasKey(r => r.Id);
             builder.Property(r => r.LinkAnh).IsRequired();
             builder.Property(r => r.TrangThai).IsRequired();
-            builder.HasOne(r => r.CTSanPhams).WithMany(r => r.Anhs).HasForeignKey(r => r.IdCtSanPham);
         }
     }
 }

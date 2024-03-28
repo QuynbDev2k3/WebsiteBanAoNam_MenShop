@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APP_DATA.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240323115232_update_giamgia")]
-    partial class update_giamgia
+    [Migration("20240328164145_MenShop")]
+    partial class MenShop
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,13 +109,13 @@ namespace APP_DATA.Migrations
                     b.Property<double>("GiaBan")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("IDAnh")
+                    b.Property<Guid?>("IDAnh")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IDChatLieu")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IDDanhGia")
+                    b.Property<Guid?>("IDDanhGia")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IDGiamGia")

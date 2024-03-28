@@ -23,6 +23,7 @@ public class CTSanPhamConfiguration : IEntityTypeConfiguration<CTSanPham>
         builder.HasMany(p => p.kichCos).WithMany(p => p.cTSanPhams);
         builder.HasOne(p => p.ChatLieu).WithMany(p => p.CTSanPhams).HasForeignKey(p => p.IDChatLieu);
         builder.HasOne(p => p.GiamGia).WithMany(p => p.CTSanPhams).HasForeignKey(p => p.IDGiamGia);
+        builder.HasMany(p => p.Anhs).WithOne(p => p.CTSanPhams).HasForeignKey(p => p.Id);
         builder.HasOne(p => p.sanpham).WithOne(p => p.ctsanpham).HasForeignKey<CTSanPham>(p => p.IDSanPham);
     }
 }

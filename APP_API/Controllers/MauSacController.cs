@@ -1,5 +1,5 @@
-﻿using APP_DATA.Models;
-using Bill.Serviece.Implements;
+﻿using APP_API.Services;
+using APP_DATA.Models;
 using Bill.Serviece.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,10 +24,10 @@ namespace APP_API.Controllers
             return _mausacsv.GetAll();
         }
 
-        
+
         // POST api/<MauSacController>
         [HttpPost("create")]
-        public bool CreateMauSac( string name, string ma)
+        public bool CreateMauSac(string name, string ma)
         {
             MauSac mau = new MauSac()
             {
@@ -46,13 +46,13 @@ namespace APP_API.Controllers
             }
         }
 
-        
+
 
         // DELETE api/<MauSacController>/5
         [HttpDelete("{id}")]
         public bool DeleteMau(Guid id)
         {
-            return _mausacsv.Del(id);
+            return _mausacsv.Delete(id);
         }
     }
 }

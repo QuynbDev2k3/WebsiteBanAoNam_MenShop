@@ -26,7 +26,7 @@ namespace APP_API.Controllers
 
         // POST api/<GiamGiaController>
         [HttpPost]
-        public IActionResult AddGiamGia(GiamGia giamGia )
+        public IActionResult AddGiamGia([FromQuery] GiamGia giamGia )
         {
             _GiamGiaSevices.AddItem( giamGia );
             return Ok();

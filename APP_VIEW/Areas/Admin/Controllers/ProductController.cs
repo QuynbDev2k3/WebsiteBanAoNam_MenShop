@@ -8,12 +8,13 @@ namespace APP_VIEW.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         //private readonly DbContext _context;
-        private readonly ILogger<ProductController> _logger;
+        //private readonly ILogger<ProductController> _logger;
 
-        public ProductController(ILogger<ProductController> logger)
-        {
-            _logger = logger;
-        }
+        //public ProductController(ILogger<ProductController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
         public IActionResult Index()
         {
             return View();

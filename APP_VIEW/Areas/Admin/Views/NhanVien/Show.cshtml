@@ -1,0 +1,91 @@
+﻿@using APP_DATA.Models
+@using Newtonsoft.Json
+@model IEnumerable<APP_DATA.Models.NhanVien>
+
+@{
+    ViewData["Title"] = "Show";
+    //Role
+    HttpClient _httpClient = new HttpClient();
+    string apiUrl = "https://localhost:7164/api/Role";
+    var response = await _httpClient.GetAsync(apiUrl);
+    string apidata = await response.Content.ReadAsStringAsync();
+    var roles = JsonConvert.DeserializeObject<List<Role>>(apidata);
+    ViewData["lstrole"] = new SelectList(roles, "Id", "Ten");
+}
+
+<h1>Show</h1>
+
+<div>
+    <p>
+        <a asp-controller="NhanVien" asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+
+
+                <th scope="col">Mã</th>
+                <th scope="col">Tên</th>
+                <th scope="col">SĐT</th>
+                <th scope="col">Email</th>
+                <th scope="col">Địa chỉ</th>
+                <th scope="col">Mật khẩu</th>
+                <th scope="col">Chức vụ</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Quản lý</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ma)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ten)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaChi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MatKhau)
+                    </td>
+
+                    <td>
+                        @foreach (var role in ViewData["lstrole"] as SelectList)
+                        {
+                            if (role.Value == item.IDRole.ToString())
+                            {
+                                @role.Text
+                                ;
+                            }
+                        }
+                    </td>
+                    <td>
+                        @if (item.TrangThai)
+                        {
+                            <p>Đang làm việc</p>
+                        }
+                        else
+                        {
+                            <p>Nghỉ việc</p>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Update" class="btn btn-warning btn-sm" asp-controller="NhanVien" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" class="btn btn-warning btn-sm" asp-controller="NhanVien" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" class="btn btn-danger btn-sm" asp-controller="NhanVien" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

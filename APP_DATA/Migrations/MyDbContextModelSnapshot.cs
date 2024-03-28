@@ -25,6 +25,10 @@ namespace APP_DATA.Migrations
             modelBuilder.Entity("APP_DATA.Models.Anh", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdCtSanPham")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LinkAnh")
@@ -35,6 +39,8 @@ namespace APP_DATA.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdCtSanPham");
 
                     b.ToTable("anhs");
                 });
@@ -106,13 +112,10 @@ namespace APP_DATA.Migrations
                     b.Property<double>("GiaBan")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("IDAnh")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("IDChatLieu")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IDDanhGia")
+                    b.Property<Guid?>("IDDanhGia")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IDGiamGia")
@@ -755,7 +758,7 @@ namespace APP_DATA.Migrations
                 {
                     b.HasOne("APP_DATA.Models.CTSanPham", "CTSanPhams")
                         .WithMany("Anhs")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("IdCtSanPham")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

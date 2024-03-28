@@ -9,6 +9,7 @@ namespace APP_DATA.Models
     public class Anh
     {
         public Guid Id { get; set; }
+        public Guid IdCtSanPham { get; set; }
         public string LinkAnh { get; set; }
         public bool TrangThai { get; set; }
         public virtual CTSanPham? CTSanPhams { get; set; }

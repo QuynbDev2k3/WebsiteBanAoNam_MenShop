@@ -33,7 +33,7 @@ public class NhanVienController : ControllerBase
     
     [Route("add")]
     [HttpPost]
-    public async Task<IActionResult> AddNhanVien([FromQuery] Guid idrole, string ma, string ten, string sdt, string email, string diachi, string matkhau, bool trangthai)
+    public async Task<IActionResult> AddNhanVien(Guid idrole, string ma, string ten, string sdt, string email, string diachi, string matkhau, bool trangthai)
     {
         await this.nhanVienService.Create(idrole, ma, ten, sdt, email, diachi, matkhau, trangthai);
         return Created("", new { IDRole = idrole, Ma = ma, Ten = ten, SDT = sdt, Email = email, DiaChi = diachi, MatKhau = matkhau, TrangThai = trangthai });

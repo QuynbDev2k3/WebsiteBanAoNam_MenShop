@@ -1,4 +1,4 @@
-﻿
+﻿using APP_API.IServices;
 using APP_DATA.Context;
 using APP_DATA.Models;
 using Bill.Serviece.Interfaces;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bill.Serviece.Implements
+namespace APP_API.Services
 {
     public class MauSacServiece : IMauSacServiece
     {
@@ -33,7 +33,8 @@ namespace Bill.Serviece.Implements
                 _context.Add(mauSac);
                 _context.SaveChanges();
                 return true;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -44,7 +45,7 @@ namespace Bill.Serviece.Implements
             try
             {
                 MauSac mauSac = _context.mauSacs.FirstOrDefault(c => c.Id == id);
-                if (mauSac != null) 
+                if (mauSac != null)
                 {
                     mauSac.TrangThai = true;
                 };
@@ -56,6 +57,11 @@ namespace Bill.Serviece.Implements
             {
                 return false;
             }
+        }
+
+        public bool Delete(Guid id)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Edit(Guid id, MauSac p)
@@ -79,10 +85,10 @@ namespace Bill.Serviece.Implements
             }
         }
 
+       
         public List<MauSac> GetAll()
         {
             return _context.mauSacs.ToList();
         }
     }
 }
-

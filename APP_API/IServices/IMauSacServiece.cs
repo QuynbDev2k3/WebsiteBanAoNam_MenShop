@@ -14,7 +14,7 @@ namespace Bill.Serviece.Interfaces
     {
         public bool Add(MauSac p);
         public List<MauSac> GetAll();
-        public bool Del(Guid id);
+        public bool Delete(Guid id); 
         public bool Edit(Guid id, MauSac p);
     }
 }

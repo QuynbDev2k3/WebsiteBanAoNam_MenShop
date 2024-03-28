@@ -1,0 +1,144 @@
+﻿@model X.PagedList.IPagedList<APP_DATA.Models.CTSanPham>
+@using APP_DATA.Context;
+@using X.PagedList
+@using X.PagedList.Mvc.Common
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "GetAllCTSanPham";
+}
+<!-- Gắn liên kết đến tệp CSS của Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<h1>Danh sách chi tiết sản phẩm</h1>
+
+<style>
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .pagination a:hover {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+        .pagination .disabled a {
+            pointer-events: none;
+            cursor: default;
+            color: #6c757d;
+            border-color: #6c757d;
+            background-color: #fff;
+        }
+</style>
+
+<p>
+    <a class="btn btn-primary" asp-action="AddCTSanPham">Create New</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="d-none">IdSanPham</th>
+                <th>Sản Phẩm</th>
+                <th class="d-none">IdVoucher</th>
+                <th>Voucher</th>
+                <th class="d-none">IdMauSac</th>
+                <th>Màu sắc</th>
+                <th class="d-none">IdKichCo</th>
+                <th>Kích cỡ</th>
+                <th class="d-none">IdChatLieu</th>
+                <th>Chất liệu</th>
+                <th class="d-none">IdAnh</th>
+                <th>Ảnh</th>
+                <th class="d-none">IdHang</th>
+                <th>Hãng</th>
+                <th class="d-none">IdGiamGia</th>
+                <th>Giảm giá</th>
+                <th>Mã</th>
+                <th>Giá bán</th>
+                <th>Số lượng</th>
+                <th>Age</th>
+                <th>Ngày tạo</th>
+                <th>Mô tả</th>
+                <th>Trạng thái</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                MyDbContext context = new MyDbContext();
+                var checksp = context.SanPhams.SingleOrDefault(r => r.ID == item.IDSanPham);
+                string sanpham = checksp.Ten;
+                var checkvc = context.vouchers.SingleOrDefault(r => r.Id == item.IDVoucher);
+                string voucher = checkvc.Ten;
+                var checkms = context.mauSacs.SingleOrDefault(r => r.Id == item.IDMauSac);
+                string mausac = checkms.TenMauSac;
+                var checkkc = context.KichCos.SingleOrDefault(r => r.Id == item.IDKichCo);
+                string kichco = checkkc.Name;
+                var checkcl = context.chatlieus.SingleOrDefault(r => r.Id == item.IDChatLieu);
+                string chatlieu = checkcl.Name;
+                var checkanh = context.anhs.SingleOrDefault(r => r.Id == item.IDAnh);
+                string anh = checkanh.LinkAnh;
+                var checkhang = context.Hangs.SingleOrDefault(r => r.ID == item.IDHang);
+                string hang = checkhang.Ten;
+                var checkgg = context.GiamGias.SingleOrDefault(r => r.Id == item.IDGiamGia);
+                string giamgia = checkgg.Ten;
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IDSanPham)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => sanpham)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDVoucher)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => voucher)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDMauSac)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => mausac)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDKichCo)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => kichco)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IDChatLieu)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => chatlieu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Anhs)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => anh)</td>
+                    <td>@Html.DisplayFor(modelItem => item.hang)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => hang)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GiamGia)</td>
+                    <td class="d-none">@Html.DisplayFor(modelItem => giamgia)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ma)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GiaBan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SoLuong)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NgayTao)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+                    <td>
+                        <a class="btn btn-secondary" asp-action="UpdateCTSanPham" asp-route-id="@item.ID">Update</a> |
+                        <a class="btn btn-info" asp-action="DetailsCTSanPham" asp-route-id="@item.ID">Details</a> |
+                        <a class="btn btn-danger" asp-action="DeleteCTSanPham" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="pagination-container">
+        @Html.PagedListPager(Model, page => Url.Action("GetAllCTSanPham", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+    </div>
+</div>

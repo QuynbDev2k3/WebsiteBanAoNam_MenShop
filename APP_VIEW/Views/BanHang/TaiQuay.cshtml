@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "TaiQuay";
 }
 
@@ -23,7 +22,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
             display: flex;
             flex-direction: row;
@@ -220,6 +219,32 @@
             <div class="invoice-info">
                 <h2>Hóa đơn</h2>
                 <!-- Thêm thông tin hóa đơn ở đây -->
+                <div class="invoice-info">
+                    <h2>Hóa đơn</h2>
+                    <div>
+                        <h3>Thông tin sản phẩm đã mua</h3>
+                        <!-- Hiển thị thông tin sản phẩm đã mua -->
+                        <div class="product-item">
+                            <div class="product-name">Sản phẩm 1</div>
+                            <div class="product-price">$10</div>
+                            <!-- Thêm các thông tin khác cần thiết -->
+                        </div>
+                        <!-- Thêm thông tin các sản phẩm khác -->
+                    </div>
+                    <div class="total-price">Tổng tiền: $xxx</div>
+                    <div class="shipping-cost">Phí vận chuyển: $xxx</div>
+                    <div class="tax">Thuế: $xxx</div>
+                    <div class="final-total">Tổng cộng: $xxx</div>
+                    <!-- Thêm thông tin khách hàng (nếu có) -->
+                    <div class="customer-info">
+                        <h3>Thông tin khách hàng</h3>
+                        <div>Tên: John Doe</div>
+                        <div>Địa chỉ: 123 Street, City</div>
+                        <div>Số điện thoại: 123456789</div>
+                        <div>Email: john@example.com</div>
+                    </div>
+                </div>
+
             </div>
             <button class="btn-pay">Thanh toán</button>
             <button class="btn-print">In hóa đơn</button>

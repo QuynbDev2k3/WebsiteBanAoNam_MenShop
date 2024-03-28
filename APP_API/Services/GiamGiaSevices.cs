@@ -31,9 +31,12 @@ namespace APP_API.Services
             try
             {
                 var gg = myDbContext.GiamGias.FirstOrDefault(c => c.Id == item.Id);
-                gg.BinhLuan=item.BinhLuan;
-                gg.Sao=item.Sao;
-                gg.NgayDanhGia=item.NgayDanhGia;
+                gg.Ten=item.Ten;
+                gg.GiaTri=item.GiaTri;
+                gg.SoLuong = item.SoLuong;
+                gg.NgayApDung=item.NgayApDung;
+                gg.NgayHetHan = item.NgayHetHan;
+                gg.MoTa = item.MoTa;
                 gg.trangThai=item.trangThai;
                 myDbContext.Update(gg);
                 myDbContext.SaveChanges();

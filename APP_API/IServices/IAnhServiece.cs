@@ -6,8 +6,6 @@ namespace APP_API.IServices
     {
         Task<IEnumerable<Anh>> GetAll();
         Task<Anh> GetById(Guid id);
-        
-        
         Task Add(string linkanh, bool trangthai);
         Task Edit(Guid id, string linkanh, bool trangthai);
         Task Delete(Guid id);

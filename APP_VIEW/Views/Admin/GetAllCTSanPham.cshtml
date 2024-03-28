@@ -99,8 +99,8 @@
                 string kichco = checkkc.Name;
                 var checkcl = context.chatlieus.SingleOrDefault(r => r.Id == item.IDChatLieu);
                 string chatlieu = checkcl.Name;
-                var checkanh = context.anhs.SingleOrDefault(r => r.Id == item.IDAnh);
-                string anh = checkanh.LinkAnh;
+                @* var checkanh = context.anhs.SingleOrDefault(r => r.Id == item.IDAnh);
+                string anh = checkanh.LinkAnh; *@
                 var checkhang = context.Hangs.SingleOrDefault(r => r.ID == item.IDHang);
                 string hang = checkhang.Ten;
                 var checkgg = context.GiamGias.SingleOrDefault(r => r.Id == item.IDGiamGia);
@@ -117,7 +117,7 @@
                     <td>@Html.DisplayFor(modelItem => item.IDChatLieu)</td>
                     <td class="d-none">@Html.DisplayFor(modelItem => chatlieu)</td>
                     <td>@Html.DisplayFor(modelItem => item.Anhs)</td>
-                    <td class="d-none">@Html.DisplayFor(modelItem => anh)</td>
+                    @* <td class="d-none">@Html.DisplayFor(modelItem => anh)</td> *@
                     <td>@Html.DisplayFor(modelItem => item.hang)</td>
                     <td class="d-none">@Html.DisplayFor(modelItem => hang)</td>
                     <td>@Html.DisplayFor(modelItem => item.GiamGia)</td>

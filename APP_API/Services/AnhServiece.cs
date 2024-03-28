@@ -29,7 +29,7 @@ public class AnhServiece : IAnhServiece
         return await repository.GetById(id);
     }
 
-    public async Task Create(Guid id, string linkanh, bool trangthai)
+    public async Task Add(string linkanh, bool trangthai)
     {
         Anh anh = new Anh   ()
         {
@@ -40,7 +40,7 @@ public class AnhServiece : IAnhServiece
         await repository.Create(anh);
     }
 
-    public async Task Update(Guid id, string linkanh, bool trangthai)
+    public async Task Edit(Guid id, string linkanh, bool trangthai)
     {
         var anh = await _context.anhs.SingleOrDefaultAsync(p => p.Id == id);
         if (anh != null)
@@ -55,28 +55,6 @@ public class AnhServiece : IAnhServiece
     public async Task Delete(Guid id)
     {
         await repository.Delete(id);
-    }
-
-    
-
-    public bool Add(Anh p)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Edit(Guid id, Anh p)
-    {
-        throw new NotImplementedException();
-    }
-
-    List<Anh> IAnhServiece.GetAll()
-    {
-        throw new NotImplementedException();
-    }
-
-    bool IAnhServiece.Delete(Guid id)
-    {
-        throw new NotImplementedException();
     }
 }
 //using APP_API.IServices;

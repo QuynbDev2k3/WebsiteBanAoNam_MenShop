@@ -9,7 +9,6 @@ namespace APP_VIEW.Areas.Admin.Controllers
     
     public class ProductController : Controller
     {
-<<<<<<< HEAD
         //private readonly DbContext _context;
         //private readonly ILogger<ProductController> _logger;
 
@@ -18,7 +17,6 @@ namespace APP_VIEW.Areas.Admin.Controllers
         //    _logger = logger;
         //}
 
-=======
        
         private readonly ILogger<ProductController> _logger;
 
@@ -27,7 +25,6 @@ namespace APP_VIEW.Areas.Admin.Controllers
             _logger = logger;
            
         }
->>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
         public IActionResult Index()
         {
             return View();

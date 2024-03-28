@@ -86,7 +86,7 @@ namespace APP_VIEW.Controllers
         {
             if (ModelState.IsValid)
             {
-                string apiUri = $"https://localhost:7164/api/ctsanpham/add?idsanpham={cTSanPham.IDSanPham}&idvoucher={cTSanPham.IDVoucher}&idmausauc={cTSanPham.IDMauSac}&idkichco={cTSanPham.IDKichCo}&idchatlieu={cTSanPham.IDChatLieu}&idanh={cTSanPham.IDAnh}&idhang={cTSanPham.IDHang}&idgiamgia={cTSanPham.IDGiamGia}&ma={cTSanPham.Ma}&giaban={cTSanPham.GiaBan}&soluong={cTSanPham.SoLuong}&age={cTSanPham.Age}&ngaytao={cTSanPham.NgayTao}&mota={cTSanPham.MoTa}&trangthai={cTSanPham.TrangThai}";
+                string apiUri = $"https://localhost:7164/api/ctsanpham/add?idsanpham={cTSanPham.IDSanPham}&idvoucher={cTSanPham.IDVoucher}&idmausauc={cTSanPham.IDMauSac}&idkichco={cTSanPham.IDKichCo}&idchatlieu={cTSanPham.IDChatLieu}&idhang={cTSanPham.IDHang}&idgiamgia={cTSanPham.IDGiamGia}&ma={cTSanPham.Ma}&giaban={cTSanPham.GiaBan}&soluong={cTSanPham.SoLuong}&age={cTSanPham.Age}&ngaytao={cTSanPham.NgayTao}&mota={cTSanPham.MoTa}&trangthai={cTSanPham.TrangThai}";
                 var response = await _httpClient.PostAsync(apiUri, null);
                 if (response.IsSuccessStatusCode)
                 {
@@ -175,7 +175,7 @@ namespace APP_VIEW.Controllers
         }
         public async Task<IActionResult> UpdateCTSanPham(Guid id, CTSanPham cTSanPham)
         {
-            string apiUri = $"https://localhost:7164/api/ctsanpham/update/{id}?idsanpham={cTSanPham.IDSanPham}&idvoucher={cTSanPham.IDVoucher}&idmausauc={cTSanPham.IDMauSac}&idkichco={cTSanPham.IDKichCo}&idchatlieu={cTSanPham.IDChatLieu}&idanh={cTSanPham.IDAnh}&idhang={cTSanPham.IDHang}&idgiamgia={cTSanPham.IDGiamGia}&ma={cTSanPham.Ma}&giaban={cTSanPham.GiaBan}&soluong={cTSanPham.SoLuong}&age={cTSanPham.Age}&ngaytao={cTSanPham.NgayTao}&mota={cTSanPham.MoTa}&trangthai={cTSanPham.TrangThai}";
+            string apiUri = $"https://localhost:7164/api/ctsanpham/update/{id}?idsanpham={cTSanPham.IDSanPham}&idvoucher={cTSanPham.IDVoucher}&idmausauc={cTSanPham.IDMauSac}&idkichco={cTSanPham.IDKichCo}&idchatlieu={cTSanPham.IDChatLieu}&idhang={cTSanPham.IDHang}&idgiamgia={cTSanPham.IDGiamGia}&ma={cTSanPham.Ma}&giaban={cTSanPham.GiaBan}&soluong={cTSanPham.SoLuong}&age={cTSanPham.Age}&ngaytao={cTSanPham.NgayTao}&mota={cTSanPham.MoTa}&trangthai={cTSanPham.TrangThai}";
             var response = await _httpClient.PutAsync(apiUri, null);
             if (response.IsSuccessStatusCode)
             {

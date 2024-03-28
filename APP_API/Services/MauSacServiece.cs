@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 ﻿using APP_API.IServices;
-=======
-﻿
 using APP_API.IServices;
->>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
 using APP_DATA.Context;
 using APP_DATA.Models;
 
@@ -89,16 +85,11 @@ namespace APP_API.Services
                 return false;
             }
         }
-
-<<<<<<< HEAD
-       
-=======
         public bool Edit(Guid id, Anh p)
         {
             throw new NotImplementedException();
         }
 
->>>>>>> 932235a6a3db4ad035f87a6d85d51d4aee12f9cd
         public List<MauSac> GetAll()
         {
             return _context.mauSacs.ToList();

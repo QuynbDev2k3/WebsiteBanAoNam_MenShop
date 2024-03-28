@@ -52,11 +52,8 @@ namespace APP_DATA.Context
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("Data Source=QUY\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
-<<<<<<< HEAD
                 //optionsBuilder.UseSqlServer("Data Source=DESKTOP-VANLOI\\SQLEXPRESS;Initial Catalog = MenShop; Integrated Security=True;Trust Server Certificate=True");
-=======
                // optionsBuilder.UseSqlServer("Data Source=LAPTOP-LK8MUMJ8\\SQLEXPRESS;Initial Catalog=MenShop;User ID=duhvph21775;Password=123456;Encrypt=False");
->>>>>>> 36ae7ba50f23e2488b5d74626f33607b2c556019
                 //optionsBuilder.UseSqlServer(@"Server=LAPTOP-B9NKF2E2\SQLEXPRESS;Database=MenShop;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }

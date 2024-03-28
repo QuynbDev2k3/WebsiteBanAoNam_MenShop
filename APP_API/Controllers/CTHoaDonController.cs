@@ -7,7 +7,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CTHoaDonController : Controller
+    public class CTHoaDonController : ControllerBase
     {
         private readonly CTHoaDonService _CtHoadonServices;
 
@@ -38,7 +38,7 @@ namespace APP_API.Controllers
             return Ok();
         }
 
-        [HttpDelete("Delete{id}")]
+        [HttpDelete("Delete/{id}")]
         public IActionResult Delete([FromQuery] Guid id)
         {
             _CtHoadonServices.Delete(id);

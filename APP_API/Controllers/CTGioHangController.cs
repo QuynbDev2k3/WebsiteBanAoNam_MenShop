@@ -7,7 +7,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CTGioHangController : Controller
+    public class CTGioHangController : ControllerBase
     {
         private readonly CTGioHangService _ctGioHangService;
 

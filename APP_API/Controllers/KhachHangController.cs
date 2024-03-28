@@ -8,7 +8,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class KhachHangController : Controller
+    public class KhachHangController : ControllerBase
     {
         private readonly KhachHangService _khachHangService;
 

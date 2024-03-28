@@ -22,10 +22,6 @@ namespace APP_API.Controllers
             return _danhmucSPSevices.GetAll();
         }
 
-        // GET api/<DanhMucSPController>/5
-        [HttpGet("{id}")]
-
-
         // POST api/<DanhMucSPController>
         [HttpPost]
         public IActionResult AddDanhMucSP([FromQuery] DanhMucSanPham Danhmuc)

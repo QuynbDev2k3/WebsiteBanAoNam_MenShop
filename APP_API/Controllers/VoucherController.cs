@@ -9,7 +9,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VoucherController : Controller
+    public class VoucherController : ControllerBase
     {
         private readonly VoucherService _voucherServices;
 

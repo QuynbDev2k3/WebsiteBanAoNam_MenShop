@@ -35,7 +35,7 @@ namespace APP_API.Controllers
 
         // PUT api/<QuyDoiDiemController>/5
         [HttpPut("{id}")]
-        public IActionResult UpdateQUyDoi(QuyDoiDiem quyDoi)
+        public IActionResult UpdateQUyDoi0(QuyDoiDiem quyDoi)
         {
             quyDoiDiemSevices.EditItem(quyDoi);
             return Ok();

@@ -38,11 +38,6 @@ public class AnhController : ControllerBase
         await this.anh.Add(linkanh, trangthai);
         return Created("", new { IdCtSanPham = idctSP, LinkAnh = linkanh, TrangThai = trangthai });
     }
-    public async Task<IActionResult> AddAnh([FromQuery] string linkanh, bool trangthai)
-    {
-        await this.anh.Add(linkanh, trangthai);
-        return Created("", new { LinkAnh = linkanh, TrangThai = trangthai });
-    }
 
     [Route("update/{id}")]
     [HttpPut]

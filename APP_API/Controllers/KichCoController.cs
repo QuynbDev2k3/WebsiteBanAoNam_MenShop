@@ -7,7 +7,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class KichCoController : Controller
+    public class KichCoController : ControllerBase
     {
         private readonly KichCoService _kichCoService;
 

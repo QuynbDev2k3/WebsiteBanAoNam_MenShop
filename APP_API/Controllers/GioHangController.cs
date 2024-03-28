@@ -9,7 +9,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GioHangController : Controller
+    public class GioHangController : ControllerBase
     {
         private readonly GioHangService _gioHangService;
         public GioHangController()

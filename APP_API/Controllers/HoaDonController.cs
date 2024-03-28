@@ -7,7 +7,7 @@ namespace APP_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HoaDonController : Controller
+    public class HoaDonController : ControllerBase
     {
         private readonly HoaDonService _hoadonServices;
 
